@@ -1,254 +1,210 @@
 ---
-// Sample review data for contractor website
-const testimonial = {
-  name: "Emily Carter",
-  role: "Homeowner",
-  rating: 5,
-  text: "From design to final handover, the experience was seamless. High-quality materials and attention to detail impressed us."
-};
-
-const stats = {
-  satisfaction: "99%",
-  projects: "12K+",
-  label1: "Client Satisfaction",
-  label2: "Landmark Projects"
-};
+const testimonials = [
+  {
+    name: "John Martinez",
+    role: "General Contractor",
+    rating: 5,
+    text: "This platform transformed how we manage our projects. The templates saved us countless hours on documentation and planning. Our team productivity increased by 40% in the first month alone."
+  },
+  {
+    name: "Sarah Williams",
+    role: "Construction Manager",
+    rating: 5,
+    text: "The customizable templates are exactly what we needed. We can now standardize our processes across all job sites while maintaining flexibility for unique projects. Highly recommended!"
+  },
+  {
+    name: "Michael Chen",
+    role: "Project Coordinator",
+    rating: 5,
+    text: "Outstanding solution for contractors. The pre-built templates for estimates, schedules, and reports are professional and easy to customize. Our clients are impressed with our documentation quality."
+  },
+  {
+    name: "Emma Rodriguez",
+    role: "Site Supervisor",
+    rating: 5,
+    text: "Finally, a tool designed specifically for contractors. The templates handle everything from safety checklists to progress reports. It's made communication with clients so much smoother."
+  },
+  {
+    name: "David Thompson",
+    role: "Estimator",
+    rating: 5,
+    text: "The bid and estimate templates are game-changers. They're detailed, professional, and help us win more projects. The time savings alone justify the investment multiple times over."
+  }
+];
 ---
 
-<section class="reviews-section bg-[#2c3e50] py-16 md:py-24 relative overflow-hidden" style="font-family: 'Poppins', sans-serif;">
-  <div class="container mx-auto px-4 relative z-10">
+<section class="bg-[#111827] text-white py-20 px-6 md:px-20 font-sans" style="font-family: 'Poppins', sans-serif;">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
     
-    <!-- Main Layout - Three Sections -->
-    <div class="flex flex-col lg:flex-row items-center justify-center gap-8 max-w-7xl mx-auto">
+    <!-- Left Column - Static Image with Stats Badge -->
+    <div class="relative group">
+      <div class="rounded-[40px] overflow-hidden border-8 border-gray-800/30">
+        <img 
+          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" 
+          alt="Professional Contractor at Work" 
+          class="w-full h-[500px] object-cover"
+        />
+      </div>
       
-      <!-- Left Section - Image with Stats to the Right -->
-      <div class="flex flex-col lg:flex-row items-center gap-6 flex-1">
-        <!-- Image Card -->
-        <div class="w-full lg:w-64 h-80 rounded-3xl overflow-hidden shadow-xl flex-shrink-0">
-          <img 
-            src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-            alt="Happy family in front of their new home"
-            class="w-full h-full object-cover"
-          />
+      <!-- Stats Badge - Bottom Right -->
+      <div class="absolute -bottom-6 -right-6 bg-[#1F2937] p-8 rounded-[30px] border border-gray-700 shadow-2xl">
+        <h2 class="text-[#2563EB] text-5xl font-bold" style="font-family: 'Poppins', sans-serif;">99%</h2>
+        <p class="text-gray-400 text-sm mt-1 uppercase tracking-wider" style="font-family: 'Poppins', sans-serif;">Client Satisfaction</p>
+      </div>
+    </div>
+
+    <!-- Right Column - Testimonial Carousel -->
+    <div class="flex flex-col space-y-8">
+      
+      <!-- Header -->
+      <div>
+        <div class="flex items-center gap-2 text-[#2563EB] mb-4">
+          <span class="text-xs font-bold uppercase tracking-[0.2em]" style="font-family: 'Poppins', sans-serif;">Client Testimonial</span>
         </div>
-        
-        <!-- Stats to the Right of Image -->
-        <div class="text-center lg:text-left">
-          <div class="text-7xl font-black text-[#f39c12] leading-none mb-2" style="font-family: 'Poppins', sans-serif;">
-            {stats.satisfaction}
-          </div>
-          <div class="text-white font-medium text-lg" style="font-family: 'Poppins', sans-serif;">
-            {stats.label1}
-          </div>
+        <h2 class="text-4xl md:text-6xl font-bold leading-tight" style="font-family: 'Poppins', sans-serif;">
+          Client Experiences <br /> That Build Trust.
+        </h2>
+      </div>
+
+      <!-- Carousel Container -->
+      <div class="relative overflow-hidden">
+        <div class="carousel-track transition-transform duration-500 ease-out" id="carouselTrack">
+          {testimonials.map((testimonial, index) => (
+            <div class="carousel-slide" key={index}>
+              <div class="bg-[#1F2937]/50 backdrop-blur-sm p-10 rounded-[40px] border border-gray-700 relative overflow-hidden">
+                
+                <!-- Quote Icon -->
+                <div class="absolute top-6 right-10 text-[#2563EB] opacity-80">
+                  <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.34315 11.3601 6 13.017 6H19.017C20.6739 6 22.017 7.34315 22.017 9V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM3 21L3 18C3 16.8954 3.89543 16 5 16H8C8.55228 16 9 15.5523 9 15V9C9 8.44772 8.55228 8 8 8H4C3.44772 8 3 8.44772 3 9V12C3 12.5523 2.55228 13 2 13H0V12V9C0 7.34315 1.34315 6 3 6H9C10.6569 6 12 7.34315 12 9V15C12 18.3137 9.31371 21 6 21H3Z" />
+                  </svg>
+                </div>
+
+                <!-- Testimonial Content -->
+                <div class="flex flex-col items-start gap-6">
+                  
+                  <!-- Customer Info -->
+                  <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1d4ed8] flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 class="text-xl font-bold text-[#2563EB]" style="font-family: 'Poppins', sans-serif;">{testimonial.name}</h4>
+                      <p class="text-gray-400 text-sm" style="font-family: 'Poppins', sans-serif;">{testimonial.role}</p>
+                    </div>
+                  </div>
+
+                  <!-- Star Rating -->
+                  <div class="flex gap-1">
+                    {Array.from({ length: testimonial.rating }, (_, i) => (
+                      <span class="text-[#2563EB] text-lg">★</span>
+                    ))}
+                  </div>
+
+                  <!-- Testimonial Text -->
+                  <blockquote class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Poppins', sans-serif;">
+                    "{testimonial.text}"
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Center Section - Testimonial -->
-      <div class="flex-1 bg-[#34495e] rounded-2xl p-8 shadow-xl">
-        
-        <!-- Orange Header Badge -->
-        <div class="text-center mb-6">
-          <div class="inline-flex items-center gap-2 bg-[#f39c12] text-white px-4 py-2 rounded-full text-sm font-medium mb-6" style="font-family: 'Poppins', sans-serif;">
-            🏠 Client Testimonial
-          </div>
-          
-          <!-- Main White Heading -->
-          <h2 class="text-3xl lg:text-4xl font-bold text-white leading-tight mb-8" style="font-family: 'Poppins', sans-serif;">
-            Client Experiences<br>
-            That Build Trust.
-          </h2>
-        </div>
-
-        <!-- Customer Info and Quote Section -->
-        <div class="flex flex-col items-center">
-          
-          <!-- Customer Avatar and Info -->
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white">
-              <img 
-                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
-                alt="Emily Carter"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div class="text-left">
-              <div class="font-bold text-lg text-[#f39c12]" style="font-family: 'Poppins', sans-serif;">
-                {testimonial.name}
-              </div>
-              <div class="text-white/80 text-sm" style="font-family: 'Poppins', sans-serif;">
-                {testimonial.role}
-              </div>
-              <!-- Star Rating -->
-              <div class="flex gap-1 mt-1">
-                {Array.from({ length: testimonial.rating }, (_, i) => (
-                  <span class="text-[#f39c12] text-sm">★</span>
-                ))}
-              </div>
-            </div>
-
-            <!-- Large Orange Quote Mark -->
-            <div class="text-7xl text-[#f39c12] font-serif leading-none ml-8 opacity-80">
-              "
-            </div>
-          </div>
-
-          <!-- Testimonial Text -->
-          <p class="text-white text-center text-base leading-relaxed max-w-md" style="font-family: 'Poppins', sans-serif;">
-            {testimonial.text}
-          </p>
-        </div>
-      </div>
-
-      <!-- Right Section - Image with Stats to the Right -->
-      <div class="flex flex-col lg:flex-row items-center gap-6 flex-1">
-        <!-- Image Card -->
-        <div class="w-full lg:w-64 h-80 rounded-3xl overflow-hidden shadow-xl flex-shrink-0">
-          <img 
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-            alt="Professional construction team"
-            class="w-full h-full object-cover"
+      <!-- Carousel Indicators -->
+      <div class="flex justify-start gap-2">
+        {testimonials.map((_, index) => (
+          <button 
+            class="carousel-indicator w-3 h-3 rounded-full bg-gray-600 transition-all duration-300 hover:bg-[#2563EB]" 
+            data-index={index}
+            key={index}
+            aria-label={`Go to testimonial ${index + 1}`}
           />
-        </div>
-        
-        <!-- Stats to the Right of Image -->
-        <div class="text-center lg:text-left">
-          <div class="text-7xl font-black text-[#f39c12] leading-none mb-2" style="font-family: 'Poppins', sans-serif;">
-            {stats.projects}
-          </div>
-          <div class="text-white font-medium text-lg" style="font-family: 'Poppins', sans-serif;">
-            {stats.label2}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>
 </section>
 
+<script>
+  const track = document.getElementById('carouselTrack');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  let currentIndex = 0;
+  const totalSlides = indicators.length;
+  const autoSwipeInterval = 5000; // 5 seconds
+
+  function updateCarousel() {
+    if (track) {
+      const offset = -currentIndex * 100; // 100% for full width
+      track.style.transform = `translateX(${offset}%)`;
+      
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        if (index === currentIndex) {
+          indicator.classList.add('bg-[#2563EB]');
+          indicator.classList.remove('bg-gray-600');
+        } else {
+          indicator.classList.remove('bg-[#2563EB]');
+          indicator.classList.add('bg-gray-600');
+        }
+      });
+    }
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  // Auto-swipe carousel
+  let autoSwipeTimer = setInterval(nextSlide, autoSwipeInterval);
+
+  // Reset timer on indicator click
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      currentIndex = index;
+      updateCarousel();
+      clearInterval(autoSwipeTimer);
+      autoSwipeTimer = setInterval(nextSlide, autoSwipeInterval);
+    });
+  });
+
+  // Initialize
+  updateCarousel();
+</script>
+
 <style>
-  /* Force Poppins font on everything in reviews section */
-  .reviews-section,
-  .reviews-section *,
-  .reviews-section *::before,
-  .reviews-section *::after {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  section {
+    font-family: 'Poppins', sans-serif;
   }
-  
-  /* Specific element overrides to ensure Poppins */
-  .reviews-section h1,
-  .reviews-section h2,
-  .reviews-section h3,
-  .reviews-section h4,
-  .reviews-section h5,
-  .reviews-section h6 {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 700 !important;
-  }
-  
-  .reviews-section p,
-  .reviews-section div,
-  .reviews-section span,
-  .reviews-section button,
-  .reviews-section a {
+
+  section * {
     font-family: 'Poppins', sans-serif !important;
   }
-  
-  /* Override any Tailwind or global font classes */
-  .reviews-section .font-sans,
-  .reviews-section .font-serif,
-  .reviews-section .font-mono {
-    font-family: 'Poppins', sans-serif !important;
+
+  .carousel-track {
+    display: flex;
+    width: 100%;
   }
-  
-  /* Card hover effects */
-  .reviews-section .grid > div {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
   }
-  
-  .reviews-section .grid > div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+  .carousel-indicator {
+    cursor: pointer;
   }
-  
-  /* Image hover effects */
-  .reviews-section img {
-    transition: transform 0.3s ease;
+
+  .carousel-indicator:hover {
+    transform: scale(1.2);
   }
-  
-  .reviews-section .grid > div:hover img {
-    transform: scale(1.05);
-  }
-  
+
   /* Responsive adjustments */
   @media (max-width: 1024px) {
-    .reviews-section .grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    .carousel-slide {
+      width: 100%;
     }
-  }
-  
-  /* Animation for cards */
-  .reviews-section .grid > div {
-    animation: slideUp 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  
-  .reviews-section .grid > div:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  
-  .reviews-section .grid > div:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  
-  .reviews-section .grid > div:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  
-  @keyframes slideUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Enhanced Poppins typography with specific weights */
-  .reviews-section h2 {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.025em;
-  }
-  
-  .reviews-section .text-lg {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 400 !important;
-    line-height: 1.7;
-  }
-  
-  .reviews-section .font-bold {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 700 !important;
-  }
-  
-  .reviews-section .font-semibold {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 600 !important;
-  }
-  
-  /* Stats numbers - make them stand out with Poppins */
-  .reviews-section .text-4xl {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 800 !important;
-  }
-  
-  /* Quote marks keep serif for visual contrast */
-  .reviews-section .font-serif {
-    font-family: ui-serif, Georgia, serif !important;
-  }
-  
-  /* Ensure button text uses Poppins */
-  .reviews-section button {
-    font-family: 'Poppins', sans-serif !important;
   }
 </style>
