@@ -8,10 +8,11 @@
 /* Global Design Tokens */
 :root {
   /* Core Identity - Brand Colors */
-  --midnight-navy: #0A1931;
-  --helios-orange: #F48C06;
-  --steel-pewter: #99B0BB;
-  --steel-blue: #1B4D7E;
+  --primary-blue: #2563EB;
+  --secondary-gray-blue: #64748B;
+  --accent-red: #DC2626;
+  --neutral-white: #FFFFFF;
+  --text-charcoal: #334155;
 
   /* UI Surfaces & Text */
   --parchment: #F5F5F5;
@@ -25,16 +26,16 @@
   --highlight: #F472B6;
 
   /* Semantic Color Mapping */
-  --primary-color: var(--midnight-navy);
-  --secondary-color: var(--helios-orange);
-  --accent-color: var(--steel-pewter);
-  --text-primary: var(--midnight-navy);
-  --text-secondary: var(--machinist);
+  --primary-color: var(--primary-blue);
+  --secondary-color: var(--secondary-gray-blue);
+  --accent-color: var(--accent-red);
+  --text-primary: var(--text-charcoal);
+  --text-secondary: var(--secondary-gray-blue);
   --text-muted: var(--muted);
-  --background: #ffffff;
+  --background: var(--neutral-white);
   --surface: var(--parchment);
-  --button-color: var(--steel-blue);
-  --button-hover: var(--steel-pewter);
+  --button-color: var(--primary-blue);
+  --button-hover: var(--secondary-gray-blue);
 
   /* Font Variables */
   --font-primary: 'Poppins', ui-sans-serif, system-ui, sans-serif;
@@ -114,7 +115,7 @@
 }
 
 .text-steel-pewter {
-  color: var(--steel-pewter);
+  color: var(--secondary-gray-blue);
 }
 
 /* Enhanced Component Classes */
@@ -144,35 +145,35 @@
 
 /* Global Component Classes */
 .btn-primary {
-  @apply bg-[var(--button-color)] hover:bg-[#144069] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  @apply bg-[var(--button-color)] hover:bg-[#1d4ed8] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
 }
 
 .btn-secondary {
-  @apply bg-[#0A1931] hover:bg-[#0f1f3a] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  @apply bg-[#64748B] hover:bg-[#475569] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
 }
 
 .btn-outline {
-  @apply border-2 border-[#F48C06] text-[#F48C06] hover:bg-[#F48C06] hover:text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+  @apply border-2 border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
 }
 
 .card {
-  @apply bg-white rounded-lg shadow-md p-6 border border-[#99B0BB];
+  @apply bg-white rounded-lg shadow-md p-6 border border-[#64748B];
 }
 
 .card-hover {
-  @apply bg-white rounded-lg shadow-md hover:shadow-lg p-6 border border-[#99B0BB] transition-shadow duration-200;
+  @apply bg-white rounded-lg shadow-md hover:shadow-lg p-6 border border-[#64748B] transition-shadow duration-200;
 }
 
 .heading-primary {
-  @apply text-3xl md:text-5xl font-bold text-[#0A1931] leading-tight;
+  @apply text-3xl md:text-5xl font-bold text-[#334155] leading-tight;
 }
 
 .heading-secondary {
-  @apply text-2xl md:text-3xl font-semibold text-[#0A1931];
+  @apply text-2xl md:text-3xl font-semibold text-[#334155];
 }
 
 .text-body {
-  @apply text-[#99B0BB] leading-relaxed;
+  @apply text-[#64748B] leading-relaxed;
 }
 
 .container-custom {
@@ -200,10 +201,10 @@
 
 /* Navbar Active States */
 .nav-item.active {
-  color: var(--helios-orange);
+  color: var(--accent-red);
 }
 
 .mobile-nav-item.active {
-  color: var(--helios-orange);
-  background-color: rgba(244, 140, 6, 0.1);
+  color: var(--accent-red);
+  background-color: rgba(220, 38, 38, 0.1);
 }
