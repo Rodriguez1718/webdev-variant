@@ -1,2 +1,52 @@
 ---
+interface Props {
+    variant?: "primary" | "secondary" | "outline";
+    size?: "sm" | "md" | "lg";
+    href?: string;
+    fullWidth?: boolean;
+    theme?: "light" | "dark";
+    scrollAdaptive?: boolean;
+    ariaLabel?: string;
+}
+
+const {
+    variant = "primary",
+    size = "md",
+    href,
+    fullWidth = false,
+    theme = "dark",
+    scrollAdaptive = false,
+    ariaLabel,
+} = Astro.props;
+
+const baseClasses =
+    "inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-lg";
+
+const variantClasses = {
+    primary: "bg-[#2563EB] hover:bg-[#1d4ed8] text-white",
+    secondary: "bg-[#64748B] hover:bg-[#475569] text-white",
+    outline:
+        "border-2 border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white",
+};
+
+const sizeClasses = {
+    sm: "px-4 py-2 text-sm",
+    md: "px-6 py-3 text-base",
+    lg: "px-8 py-4 text-lg",
+};
+
+const widthClass = fullWidth ? "w-full" : "";
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${widthClass}`;
+
+const Element = href ? "a" : "button";
 ---
+
+<Element
+    class={classes}
+    href={href}
+    aria-label={ariaLabel}
+    type={href ? undefined : "submit"}
+>
+    <slot />
+</Element>

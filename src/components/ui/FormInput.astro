@@ -1,2 +1,39 @@
 ---
+interface Props {
+    type?: "text" | "email" | "tel" | "password";
+    name: string;
+    label: string;
+    placeholder?: string;
+    variant?: "light" | "dark";
+    required?: boolean;
+}
+
+const {
+    type = "text",
+    name,
+    label,
+    placeholder,
+    variant = "light",
+    required = false,
+} = Astro.props;
+
+const inputClasses =
+    variant === "dark"
+        ? "w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20 outline-none transition-all"
+        : "w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20 outline-none transition-all";
 ---
+
+<div class="form-group">
+    <label for={name} class="block text-sm font-semibold mb-2 text-[#334155]">
+        {label}
+        {required && <span class="text-[#DC2626]">*</span>}
+    </label>
+    <input
+        type={type}
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        class={inputClasses}
+        required={required}
+    />
+</div>
