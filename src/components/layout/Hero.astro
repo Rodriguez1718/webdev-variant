@@ -27,46 +27,7 @@ const {
 } = Astro.props;
 ---
 
-<section
-  class="relative h-screen flex items-center overflow-hidden"
-  style="background: radial-gradient(ellipse at center top, #161F30 0%, #1a2332 30%, #0f1419 60%, #0a0e14 100%), linear-gradient(180deg, #161F30 0%, #0f1419 50%, #0a0e14 100%);"
->
-  <!-- Background Image Slideshow - Hidden on Mobile -->
-  <div class="absolute inset-0 hidden md:block">
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[1500ms] ease-in-out slideshow-image active"
-      style="background-image: url('/images/img1.avif'); filter: brightness(0.15) contrast(1.2);"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[1500ms] ease-in-out slideshow-image"
-      style="background-image: url('/images/img2.avif'); filter: brightness(0.15) contrast(1.2);"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[1500ms] ease-in-out slideshow-image"
-      style="background-image: url('/images/img3.avif'); filter: brightness(0.15) contrast(1.2);"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[1500ms] ease-in-out slideshow-image"
-      style="background-image: url('/images/img4.avif'); filter: brightness(0.15) contrast(1.2);"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[1500ms] ease-in-out slideshow-image"
-      style="background-image: url('/images/img5.avif'); filter: brightness(0.15) contrast(1.2);"
-    >
-    </div>
-  </div>
-
-  <!-- Dark Overlay with subtle gradient -->
-  <div
-    class="absolute inset-0 opacity-60"
-    style="background: radial-gradient(ellipse at center, rgba(22, 31, 48, 0.1) 0%, rgba(22, 31, 48, 0.4) 40%, rgba(15, 20, 25, 0.8) 100%);"
-  >
-  </div>
-
+<section class="relative h-screen flex items-center overflow-hidden">
   <!-- Content -->
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-8">
     <div
