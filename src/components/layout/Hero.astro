@@ -29,7 +29,7 @@ const {
 
 <section
   class="relative h-screen flex items-center overflow-hidden"
-  style="background: radial-gradient(ellipse at center top, rgba(51, 65, 85, 0.3) 0%, rgba(30, 41, 59, 0.8) 30%, rgba(15, 23, 42, 0.95) 60%, rgba(2, 6, 23, 1) 100%), linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 50%, rgba(2, 6, 23, 1) 100%);"
+  style="background: radial-gradient(ellipse at center top, #161F30 0%, #1a2332 30%, #0f1419 60%, #0a0e14 100%), linear-gradient(180deg, #161F30 0%, #0f1419 50%, #0a0e14 100%);"
 >
   <!-- Background Image Slideshow - Hidden on Mobile -->
   <div class="absolute inset-0 hidden md:block">
@@ -62,8 +62,8 @@ const {
 
   <!-- Dark Overlay with subtle gradient -->
   <div
-    class="absolute inset-0 opacity-80"
-    style="background: radial-gradient(ellipse at center, rgba(51, 65, 85, 0.1) 0%, rgba(30, 41, 59, 0.6) 40%, rgba(15, 23, 42, 0.9) 100%);"
+    class="absolute inset-0 opacity-60"
+    style="background: radial-gradient(ellipse at center, rgba(22, 31, 48, 0.1) 0%, rgba(22, 31, 48, 0.4) 40%, rgba(15, 20, 25, 0.8) 100%);"
   >
   </div>
 
@@ -74,13 +74,13 @@ const {
       <!-- Left Image -->
       <div class="lg:col-span-3 flex justify-center lg:justify-end animate-[fade-in-left_1s_ease-out]">
         <div class="relative">
-          <div class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl">
+          <div class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2" style="border-color: #94F9FD;">
             <img 
               src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=626&q=80"
               alt="Professional businessman in construction industry" 
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ const {
         <div class="animate-[fade-in_1s_ease-out] mb-6">
           <span
             class="inline-block font-semibold tracking-[0.2em] uppercase text-sm"
-            style="color: var(--accent-red);"
+            style="color: #94F9FD;"
           >
             Your Growth Partner
           </span>
@@ -100,14 +100,14 @@ const {
 
         <!-- Main Heading -->
         <div class="space-y-6 animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.2s] [animation-fill-mode:forwards]">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white">
-            Build. Grow. Dominate.
+          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight" style="color: #FFFFFF;">
+            Build. <span style="color: #94F9FD;">Grow</span>. Dominate.
           </h1>
         </div>
 
         <!-- Description -->
         <div class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.4s] [animation-fill-mode:forwards]">
-          <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+          <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style="color: #FFFFFF;">
             Over 2,500 contractors and trades professionals have trusted us to elevate their digital presence. Transform your business online and reach more customers than ever before.
           </p>
         </div>
@@ -139,12 +139,12 @@ const {
 
         <!-- Trust/Stats Section -->
         <div class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.8s] [animation-fill-mode:forwards] pt-8">
-          <p class="text-sm text-gray-300 mb-4">Trusted by contractors and trades professionals nationwide</p>
-          <div class="flex items-center justify-center space-x-8 opacity-60">
-            <div class="text-gray-300 font-semibold text-lg">2,500+</div>
-            <div class="text-gray-300 font-semibold text-lg">Contractors</div>
-            <div class="text-gray-300 font-semibold text-lg">Served</div>
-            <div class="text-gray-300 font-semibold text-lg">Nationwide</div>
+          <p class="text-sm mb-4" style="color: #FFFFFF;">Trusted by contractors and trades professionals nationwide</p>
+          <div class="flex items-center justify-center space-x-8 opacity-80">
+            <div class="font-semibold text-lg" style="color: #2F8EF8;">2,500+</div>
+            <div class="font-semibold text-lg" style="color: #2F8EF8;">Contractors</div>
+            <div class="font-semibold text-lg" style="color: #2F8EF8;">Served</div>
+            <div class="font-semibold text-lg" style="color: #2F8EF8;">Nationwide</div>
           </div>
         </div>
       </div>
@@ -152,13 +152,13 @@ const {
       <!-- Right Image -->
       <div class="lg:col-span-3 flex justify-center lg:justify-start animate-[fade-in-right_1s_ease-out]">
         <div class="relative">
-          <div class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl">
+          <div class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2" style="border-color: #2F8EF8;">
             <img 
               src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=676&q=80"
               alt="Professional construction worker with hard hat" 
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
         </div>
       </div>

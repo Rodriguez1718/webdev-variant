@@ -14,6 +14,12 @@
   --neutral-white: #FFFFFF;
   --text-charcoal: #334155;
 
+  /* New Modern Palette - From Design Reference */
+  --dark-navy: #161F30;
+  --bright-cyan: #94F9FD;
+  --bright-blue: #2F8EF8;
+  --pure-white: #FFFFFF;
+
   /* UI Surfaces & Text */
   --parchment: #F5F5F5;
   --machinist: #7E7E7E;
@@ -26,16 +32,16 @@
   --highlight: #F472B6; 
 
   /* Semantic Color Mapping */
-  --primary-color: var(--primary-blue);
-  --secondary-color: var(--secondary-gray-blue);
-  --accent-color: var(--accent-red);
-  --text-primary: var(--text-charcoal);
-  --text-secondary: var(--secondary-gray-blue);
+  --primary-color: var(--bright-blue);
+  --secondary-color: var(--bright-cyan);
+  --accent-color: var(--bright-cyan);
+  --text-primary: var(--pure-white);
+  --text-secondary: var(--bright-cyan);
   --text-muted: var(--muted);
-  --background: var(--neutral-white);
-  --surface: var(--parchment);
-  --button-color: var(--primary-blue);
-  --button-hover: var(--secondary-gray-blue);
+  --background: var(--dark-navy);
+  --surface: var(--dark-navy);
+  --button-color: var(--bright-blue);
+  --button-hover: var(--bright-cyan);
 
   /* Font Variables */
   --font-primary: 'Poppins', ui-sans-serif, system-ui, sans-serif;
@@ -143,37 +149,70 @@
   @apply bg-blue-50 border border-[#22D3EE] text-blue-800 p-4 rounded-lg;
 }
 
+/* Modern Palette Utility Classes */
+.bg-dark-navy {
+  background-color: var(--dark-navy);
+}
+
+.bg-bright-cyan {
+  background-color: var(--bright-cyan);
+}
+
+.bg-bright-blue {
+  background-color: var(--bright-blue);
+}
+
+.text-dark-navy {
+  color: var(--dark-navy);
+}
+
+.text-bright-cyan {
+  color: var(--bright-cyan);
+}
+
+.text-bright-blue {
+  color: var(--bright-blue);
+}
+
+.border-bright-cyan {
+  border-color: var(--bright-cyan);
+}
+
+.border-bright-blue {
+  border-color: var(--bright-blue);
+}
+
 /* Global Component Classes */
 .btn-primary {
-  @apply bg-[var(--button-color)] hover:bg-[#1d4ed8] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  @apply bg-[var(--bright-blue)] hover:bg-[var(--bright-cyan)] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
 }
 
 .btn-secondary {
-  @apply bg-[#64748B] hover:bg-[#475569] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  @apply bg-[var(--bright-cyan)] hover:bg-[var(--bright-blue)] text-[var(--dark-navy)] font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
 }
 
 .btn-outline {
-  @apply border-2 border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+  @apply border-2 border-[var(--bright-cyan)] text-[var(--bright-cyan)] hover:bg-[var(--bright-cyan)] hover:text-[var(--dark-navy)] font-semibold py-2 px-4 rounded-lg transition-all duration-200;
 }
 
 .card {
-  @apply bg-white rounded-lg shadow-md p-6 border border-[#64748B];
+  @apply bg-[var(--dark-navy)] rounded-lg shadow-md p-6 border border-[var(--bright-cyan)];
 }
 
 .card-hover {
-  @apply bg-white rounded-lg shadow-md hover:shadow-lg p-6 border border-[#64748B] transition-shadow duration-200;
+  @apply bg-[var(--dark-navy)] rounded-lg shadow-md hover:shadow-lg p-6 border border-[var(--bright-cyan)] transition-shadow duration-200;
 }
 
 .heading-primary {
-  @apply text-3xl md:text-5xl font-bold text-[#334155] leading-tight;
+  @apply text-3xl md:text-5xl font-bold text-[var(--pure-white)] leading-tight;
 }
 
 .heading-secondary {
-  @apply text-2xl md:text-3xl font-semibold text-[#334155];
+  @apply text-2xl md:text-3xl font-semibold text-[var(--bright-cyan)];
 }
 
 .text-body {
-  @apply text-[#64748B] leading-relaxed;
+  @apply text-[var(--pure-white)] leading-relaxed;
 }
 
 .container-custom {
@@ -201,10 +240,10 @@
 
 /* Navbar Active States */
 .nav-item.active {
-  color: var(--accent-red);
+  color: var(--bright-cyan);
 }
 
 .mobile-nav-item.active {
-  color: var(--accent-red);
-  background-color: rgba(220, 38, 38, 0.1);
+  color: var(--bright-cyan);
+  background-color: rgba(148, 249, 253, 0.1);
 }
