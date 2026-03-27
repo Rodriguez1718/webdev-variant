@@ -323,6 +323,37 @@ const trades = await getCollection("trades");
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
+
+    /* Burger button animations - flips the line pattern */
+    .burger-btn .line-top {
+        width: 14px; /* w-3.5 = 14px - starts small */
+    }
+
+    .burger-btn .line-middle {
+        width: 24px; /* w-6 = 24px - starts long */
+    }
+
+    .burger-btn .line-bottom {
+        width: 14px; /* w-3.5 = 14px - starts small */
+    }
+
+    /* When open: flip the pattern - top and bottom become long, middle becomes short */
+    .burger-btn.open .line-top {
+        width: 24px; /* becomes long */
+    }
+
+    .burger-btn.open .line-middle {
+        width: 14px; /* becomes short */
+    }
+
+    .burger-btn.open .line-bottom {
+        width: 24px; /* becomes long */
+    }
+
+    /* Mobile menu open state */
+    .mobile-menu.open {
+        max-height: 100vh !important;
+    }
 </style>
 
 <script>
@@ -330,13 +361,59 @@ const trades = await getCollection("trades");
         const navbar = document.querySelector("nav");
         const navItems = document.querySelectorAll(".nav-item");
         const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        const burgerBtn = document.getElementById("burgerBtn");
+        const mobileMenu = document.getElementById("mobile-menu");
         const tradesToggle = document.getElementById("trades-toggle");
         const tradesDropdown = document.querySelector(
             ".mobile-trades-dropdown",
-        );
+        ) as HTMLElement | null;
         const tradesChevron = document.querySelector(".trades-chevron");
 
         if (!navbar) return;
+
+        // Burger menu toggle functionality
+        if (burgerBtn && mobileMenu) {
+            burgerBtn.addEventListener("click", function () {
+                const isOpen = mobileMenu.classList.contains("open");
+                
+                if (!isOpen) {
+                    // Open menu
+                    mobileMenu.classList.add("open");
+                    burgerBtn.classList.add("open");
+                    burgerBtn.setAttribute("aria-expanded", "true");
+                    
+                    // Calculate and set max height
+                    const menuContent = mobileMenu.querySelector("div") as HTMLElement | null;
+                    if (menuContent) {
+                        mobileMenu.style.maxHeight = menuContent.scrollHeight + "px";
+                    }
+                } else {
+                    // Close menu
+                    mobileMenu.classList.remove("open");
+                    burgerBtn.classList.remove("open");
+                    burgerBtn.setAttribute("aria-expanded", "false");
+                    mobileMenu.style.maxHeight = "0";
+                    
+                    // Also close trades dropdown if open
+                    if (tradesDropdown) {
+                        tradesDropdown.style.maxHeight = "0px";
+                        if (tradesChevron) {
+                            tradesChevron.classList.remove("rotate-180");
+                        }
+                    }
+                }
+            });
+
+            // Close menu when clicking nav links
+            mobileNavItems.forEach((item) => {
+                item.addEventListener("click", function () {
+                    mobileMenu.classList.remove("open");
+                    burgerBtn.classList.remove("open");
+                    burgerBtn.setAttribute("aria-expanded", "false");
+                    mobileMenu.style.maxHeight = "0";
+                });
+            });
+        }
 
         // Scroll effect for navbar
         let lastScroll = 0;
@@ -374,15 +451,15 @@ const trades = await getCollection("trades");
                 e.preventDefault();
                 e.stopPropagation();
 
-                const dropdown = tradesDropdown as HTMLElement;
+                const dropdown = tradesDropdown;
                 const isCurrentlyOpen =
-                    dropdown.style.maxHeight &&
+                    dropdown && dropdown.style.maxHeight &&
                     dropdown.style.maxHeight !== "0px";
 
                 // Toggle dropdown with smooth animation
-                if (!isCurrentlyOpen) {
+                if (!isCurrentlyOpen && dropdown) {
                     dropdown.style.maxHeight = dropdown.scrollHeight + "px";
-                } else {
+                } else if (dropdown) {
                     dropdown.style.maxHeight = "0px";
                 }
 
@@ -412,8 +489,6 @@ const trades = await getCollection("trades");
         const tradeLinks = document.querySelectorAll(
             ".mobile-trades-dropdown a",
         );
-        const burgerBtn = document.getElementById("burgerBtn");
-        const mobileMenu = document.getElementById("mobile-menu");
 
         tradeLinks.forEach((link) => {
             link.addEventListener("click", function () {
