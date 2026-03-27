@@ -1,7 +1,7 @@
 ---
-import Footer from '../components/layout/Footer.astro';
-import Navbar from '../components/layout/Navbar.astro';
-import "../styles/global.css"
+import Footer from "../components/layout/Footer.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import "../styles/global.css";
 
 interface Props {
     title?: string;
@@ -17,7 +17,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,13 +42,17 @@ const {
 
         <title>{title}</title>
     </head>
-    <body>
+    <body class="overflow-x-hidden">
         <!-- Global Background -->
-        <div class="fixed inset-0 -z-10" style="background: linear-gradient(180deg, #161F30 0%, #1a2332 25%, #0f1419 75%, #0a0e14 100%);"></div>
-        
+        <div
+            class="fixed inset-0 -z-10"
+            style="background: linear-gradient(180deg, #161F30 0%, #1a2332 25%, #0f1419 75%, #0a0e14 100%);"
+        >
+        </div>
+
         <Navbar />
         <!-- Main Content Slot -->
-        <main>
+        <main class="overflow-x-hidden pt-20">
             <slot />
         </main>
         <Footer />

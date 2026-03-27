@@ -1,5 +1,5 @@
 ---
-// Hero component for Buildr - Construction site style
+// Hero component - Centered layout with background slideshow
 import Button from "../ui/Button.astro";
 
 export interface Props {
@@ -8,7 +8,6 @@ export interface Props {
   description?: string;
   buttonText?: string;
   buttonLink?: string;
-  backgroundImages?: string[];
 }
 
 const {
@@ -16,152 +15,231 @@ const {
   subtitle = "Your Growth Partner",
   description = "Over 2,500 contractors and trades professionals have trusted us to elevate their digital presence. Transform your business online and reach more customers than ever before.",
   buttonText = "VIEW OUR WORK",
-  buttonLink = "#work",
-  backgroundImages = [
-    "/images/img1.avif",
-    "/images/img2.avif",
-    "/images/img3.avif",
-    "/images/img4.avif",
-    "/images/img5.avif",
-  ],
+  buttonLink = "/our-work",
 } = Astro.props;
+
+const backgroundImages = [
+  "/images/img1.avif",
+  "/images/img2.avif",
+  "/images/img3.avif",
+  "/images/img4.avif",
+  "/images/img5.avif",
+];
 ---
 
-<section class="relative h-screen flex items-center overflow-hidden">
-  <!-- Content -->
-  <div class="relative z-10 w-full max-w-[1400px] mx-auto px-8">
+<section
+  class="relative h-screen flex items-center justify-center overflow-hidden"
+>
+  <!-- Background Slideshow -->
+  <div class="absolute inset-0 z-0">
+    {
+      backgroundImages.map((image, index) => (
+        <div
+          class={`absolute inset-0 bg-slideshow hidden md:block ${index === 0 ? "active" : ""}`}
+          data-index={index}
+        >
+          <img
+            src={image}
+            alt={`Background ${index + 1}`}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      ))
+    }
+    <!-- Mobile solid background -->
+    <div class="absolute inset-0 md:hidden mobile-bg">
+      <!-- Animated gradient base -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-[#161F30] via-[#1a2332] to-[#0f1419]"
+      >
+      </div>
+
+      <!-- Animated glowing orbs -->
+      <div
+        class="absolute top-20 left-10 w-64 h-64 bg-[#2F8EF8] rounded-full opacity-20 blur-3xl animate-pulse-slow"
+      >
+      </div>
+      <div
+        class="absolute bottom-20 right-10 w-72 h-72 bg-[#94F9FD] rounded-full opacity-15 blur-3xl animate-pulse-slower"
+      >
+      </div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#2F8EF8] rounded-full opacity-10 blur-3xl animate-float"
+      >
+      </div>
+
+      <!-- Diagonal lines pattern -->
+      <div
+        class="absolute inset-0 opacity-5"
+        style="background-image: repeating-linear-gradient(45deg, #94F9FD 0px, #94F9FD 2px, transparent 2px, transparent 20px);"
+      >
+      </div>
+
+      <!-- Radial gradient overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-radial from-transparent via-[#161F30]/50 to-[#161F30]"
+      >
+      </div>
+    </div>
+
+    <!-- Dark overlay for text readability (desktop only) -->
     <div
-      class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]"
+      class="absolute inset-0 bg-gradient-to-b from-[#161F30]/80 via-[#161F30]/70 to-[#161F30]/90 hidden md:block"
     >
-      <!-- Left Image -->
-      <div
-        class="lg:col-span-3 flex justify-center lg:justify-end animate-[fade-in-left_1s_ease-out]"
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto px-8 text-center">
+    <!-- Eyebrow -->
+    <div class="animate-[fade-in_1s_ease-out] mb-6">
+      <span
+        class="text-eyebrow inline-block px-6 py-2 rounded-full border border-[#94F9FD]/30 bg-[#94F9FD]/10 backdrop-blur-sm"
+        style="color: #94F9FD;"
       >
-        <div class="relative">
-          <div
-            class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2"
-            style="border-color: #94F9FD;"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=626&q=80"
-              alt="Professional businessman in construction industry"
-              class="w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
-            >
-            </div>
+        {subtitle}
+      </span>
+    </div>
+
+    <!-- Main Heading -->
+    <div
+      class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.2s] [animation-fill-mode:forwards] mb-8"
+    >
+      <h1 class="heading-primary gradient-text-cyan leading-tight">
+        {title}
+      </h1>
+    </div>
+
+    <!-- Description -->
+    <div
+      class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.4s] [animation-fill-mode:forwards] mb-10"
+    >
+      <p
+        class="text-description max-w-3xl mx-auto leading-relaxed"
+        style="color: #FFFFFF; text-shadow: 0 2px 8px rgba(0,0,0,0.5);"
+      >
+        {description}
+      </p>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div
+      class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.6s] [animation-fill-mode:forwards] flex flex-col sm:flex-row gap-4 justify-center items-center"
+    >
+      <Button
+        variant="primary"
+        size="lg"
+        href={buttonLink}
+        ariaLabel="View our portfolio of completed projects"
+      >
+        {buttonText}
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </Button>
+
+      <Button
+        variant="secondary"
+        size="lg"
+        href="/contact"
+        ariaLabel="Get in touch with us"
+      >
+        Get Started
+      </Button>
+    </div>
+
+    <!-- Trust Stats -->
+    <div
+      class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.8s] [animation-fill-mode:forwards] mt-16"
+    >
+      <p class="text-nav mb-6 text-white/80">
+        Trusted by contractors and trades professionals nationwide
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+        <div class="text-center">
+          <div class="text-4xl font-bold gradient-text-azure mb-1">2,500+</div>
+          <div class="text-sm text-white/70 uppercase tracking-wider">
+            Contractors
           </div>
         </div>
-      </div>
-
-      <!-- Centered Content -->
-      <div class="lg:col-span-6 text-center space-y-8">
-        <!-- Small Title -->
-        <div class="animate-[fade-in_1s_ease-out] mb-6">
-          <span class="text-eyebrow" style="color: #94F9FD;">
-            Your Growth Partner
-          </span>
-        </div>
-
-        <!-- Main Heading -->
-        <div
-          class="space-y-6 animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.2s] [animation-fill-mode:forwards]"
-        >
-          <h1 class="heading-primary gradient-text-cyan">
-            Build. Grow. Dominate.
-          </h1>
-        </div>
-
-        <!-- Description -->
-        <div
-          class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.4s] [animation-fill-mode:forwards]"
-        >
-          <p class="text-description max-w-2xl mx-auto" style="color: #FFFFFF;">
-            Over 2,500 contractors and trades professionals have trusted us to
-            elevate their digital presence. Transform your business online and
-            reach more customers than ever before.
-          </p>
-        </div>
-
-        <!-- CTA Button -->
-        <div
-          class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.6s] [animation-fill-mode:forwards] pt-4"
-        >
-          <Button
-            variant="primary"
-            size="lg"
-            href="/our-work"
-            ariaLabel="View our portfolio of completed projects"
-          >
-            VIEW OUR WORK
-            <svg
-              class="w-5 h-5 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </Button>
-        </div>
-
-        <!-- Trust/Stats Section -->
-        <div
-          class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.8s] [animation-fill-mode:forwards] pt-8"
-        >
-          <p class="text-nav mb-4" style="color: #FFFFFF;">
-            Trusted by contractors and trades professionals nationwide
-          </p>
-          <div class="flex items-center justify-center space-x-8 opacity-80">
-            <div class="text-nav font-semibold" style="color: #2F8EF8;">
-              2,500+
-            </div>
-            <div class="text-nav font-semibold" style="color: #2F8EF8;">
-              Contractors
-            </div>
-            <div class="text-nav font-semibold" style="color: #2F8EF8;">
-              Served
-            </div>
-            <div class="text-nav font-semibold" style="color: #2F8EF8;">
-              Nationwide
-            </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold gradient-text-azure mb-1">98%</div>
+          <div class="text-sm text-white/70 uppercase tracking-wider">
+            Satisfaction
           </div>
         </div>
-      </div>
-
-      <!-- Right Image -->
-      <div
-        class="lg:col-span-3 flex justify-center lg:justify-start animate-[fade-in-right_1s_ease-out]"
-      >
-        <div class="relative">
-          <div
-            class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2"
-            style="border-color: #2F8EF8;"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=676&q=80"
-              alt="Professional construction worker with hard hat"
-              class="w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
-            >
-            </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold gradient-text-azure mb-1">50+</div>
+          <div class="text-sm text-white/70 uppercase tracking-wider">
+            States
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <svg
+      class="w-6 h-6 text-[#94F9FD]"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
 </section>
 
+<script>
+  // Background slideshow
+  const slides = document.querySelectorAll(".bg-slideshow");
+  let currentSlide = 0;
+
+  function nextSlide() {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }
+
+  // Change slide every 5 seconds
+  setInterval(nextSlide, 5000);
+</script>
+
 <style>
-  .slideshow-image.active {
-    opacity: 1 !important;
+  .bg-slideshow {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
+
+  .bg-slideshow.active {
+    opacity: 1;
+  }
+
+  .bg-slideshow img {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes ken-burns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
   }
 
   @keyframes fade-in {
@@ -184,48 +262,76 @@ const {
     }
   }
 
-  @keyframes fade-in-left {
-    from {
-      opacity: 0;
-      transform: translateX(-30px);
+  /* Mobile background animations */
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 0.2;
+      transform: scale(1);
     }
-    to {
-      opacity: 1;
-      transform: translateX(0);
+    50% {
+      opacity: 0.3;
+      transform: scale(1.1);
     }
   }
 
-  @keyframes fade-in-right {
-    from {
-      opacity: 0;
-      transform: translateX(30px);
+  @keyframes pulse-slower {
+    0%,
+    100% {
+      opacity: 0.15;
+      transform: scale(1);
     }
-    to {
-      opacity: 1;
-      transform: translateX(0);
+    50% {
+      opacity: 0.25;
+      transform: scale(1.15);
     }
   }
 
   @keyframes float {
     0%,
     100% {
-      transform: translateY(0px);
+      transform: translate(-50%, -50%) translateY(0px);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translate(-50%, -50%) translateY(-20px);
     }
   }
 
-  /* Responsive typography adjustments */
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-slower {
+    animation: pulse-slower 6s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(22, 31, 48, 0.5) 50%,
+      rgba(22, 31, 48, 1) 100%
+    );
+  }
+
+  /* Responsive typography */
   @media (max-width: 768px) {
-    .hero-lcp div {
-      font-size: 4rem !important;
+    .heading-primary {
+      font-size: 3rem;
+    }
+
+    .text-description {
+      font-size: 1.125rem;
     }
   }
 
   @media (max-width: 640px) {
-    .hero-lcp div {
-      font-size: 3rem !important;
+    .heading-primary {
+      font-size: 2.5rem;
     }
   }
 </style>

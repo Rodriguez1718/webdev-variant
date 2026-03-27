@@ -9,7 +9,8 @@ const trades = await getCollection("trades");
 ---
 
 <nav
-    class="sticky top-0 w-full z-50 glass border-b border-[#94F9FD]/20"
+    class="fixed top-0 w-full z-50 border-b border-[#94F9FD]/20 transition-all duration-300 backdrop-blur-md bg-[#161F30]/80"
+    id="navbar"
     style="box-shadow: 0 4px 20px rgba(148, 249, 253, 0.1);"
 >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -307,6 +308,21 @@ const trades = await getCollection("trades");
         color: var(--bright-cyan);
         background-color: rgba(148, 249, 253, 0.1);
     }
+
+    /* Scrolled navbar state */
+    nav.scrolled {
+        background: rgba(22, 31, 48, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 4px 30px rgba(148, 249, 253, 0.2) !important;
+        border-bottom: 1px solid rgba(148, 249, 253, 0.3);
+    }
+
+    /* Default navbar glassmorphism */
+    nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 </style>
 
 <script>
@@ -321,6 +337,20 @@ const trades = await getCollection("trades");
         const tradesChevron = document.querySelector(".trades-chevron");
 
         if (!navbar) return;
+
+        // Scroll effect for navbar
+        let lastScroll = 0;
+        window.addEventListener("scroll", function () {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+
+            lastScroll = currentScroll;
+        });
 
         // Mobile trades dropdown toggle
         if (tradesToggle && tradesDropdown) {

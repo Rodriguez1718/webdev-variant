@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero2 from "../components/layout/Hero2.astro";
 import Trades from "../components/layout/Trades.astro";
 ---
 
@@ -7,5 +8,14 @@ import Trades from "../components/layout/Trades.astro";
     title="Trades We Serve - Webdev Variant"
     description="Explore the professional trades and services we provide"
 >
+    <Hero2
+        title="Trades We Serve"
+        subtitle="Our Services"
+        description="Specialized digital solutions tailored for your industry. From HVAC to plumbing, we understand your business and deliver results that matter."
+        showCTA={true}
+        ctaText="Get Started"
+        ctaHref="/contact"
+    />
+
     <Trades />
 </BaseLayout>

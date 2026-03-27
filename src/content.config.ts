@@ -32,7 +32,7 @@ const reviews = defineCollection({
 });
 
 const templates = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/templates' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -40,6 +40,12 @@ const templates = defineCollection({
     featured: z.boolean().default(false),
     image: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    trade: z.string(),
+    order: z.number().default(1),
+    stats: z.string().optional(),
+    thumbnail: z.string().optional(),
+    liveDemoUrl: z.string().optional(),
+    mainSiteUrl: z.string().optional(),
   }),
 });
 

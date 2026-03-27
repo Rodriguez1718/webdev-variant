@@ -1,18 +1,26 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Navbar from "../../components/layout/Navbar.astro";
-import Footer from "../../components/layout/Footer.astro";
+import Hero2 from "../../components/layout/Hero2.astro";
 
 export async function getStaticPaths() {
     const trades = await getCollection("trades");
-    return trades.map((trade) => ({
-        params: { slug: trade.data.slug },
-        props: { trade },
-    }));
+    const allTemplates = await getCollection("templates");
+
+    return trades.map((trade) => {
+        // Filter templates for this specific trade
+        const tradeTemplates = allTemplates
+            .filter((template) => template.data.trade === trade.data.slug)
+            .sort((a, b) => (a.data.order || 1) - (b.data.order || 1));
+
+        return {
+            params: { slug: trade.data.slug },
+            props: { trade, templates: tradeTemplates },
+        };
+    });
 }
 
-const { trade } = Astro.props;
+const { trade, templates } = Astro.props;
 const { name, tagline, hoverDescription, image } = trade.data;
 ---
 
@@ -20,72 +28,136 @@ const { name, tagline, hoverDescription, image } = trade.data;
     title={`${name} - Webdev Variant`}
     description={hoverDescription || tagline}
 >
-    <Navbar />
+    <!-- Hero Section -->
+    <Hero2 
+        title={name}
+        subtitle={tagline}
+        description={hoverDescription || tagline}
+        image={image}
+        showCTA={true}
+        ctaText="Get a Quote"
+        ctaHref="/contact"
+    />
+        <!-- Templates Section -->
+        {templates && templates.length > 0 && (
+            <section class="templates-section relative py-20 overflow-hidden">
+                <!-- Background -->
+                <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/5"></div>
+                
+                <!-- Decorative gradients -->
+                <div class="absolute top-20 right-0 w-96 h-96 opacity-10 pointer-events-none" style="background: radial-gradient(circle, #2F8EF8 0%, transparent 70%);"></div>
+                <div class="absolute bottom-20 left-0 w-96 h-96 opacity-8 pointer-events-none" style="background: radial-gradient(circle, #94F9FD 0%, transparent 70%);"></div>
 
-    <main style="padding-top: 100px; min-height: 100vh;">
-        <section style="max-width: 1200px; margin: 0 auto; padding: 60px 32px;">
-            <div
-                style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;"
-            >
-                <!-- Content -->
-                <div>
-                    <h1
-                        style="font-family: var(--font-primary); font-size: 3rem; font-weight: 700; color: var(--text-charcoal); margin-bottom: 16px;"
-                    >
-                        {name}
-                    </h1>
-                    <p
-                        style="font-family: var(--font-primary); font-size: 1.25rem; color: var(--secondary-gray-blue); margin-bottom: 24px;"
-                    >
-                        {tagline}
-                    </p>
-                    <p
-                        style="font-family: var(--font-primary); font-size: 1.125rem; color: var(--text-charcoal); line-height: 1.8; margin-bottom: 32px;"
-                    >
-                        {hoverDescription || tagline}
-                    </p>
-                    <a
-                        href="/contact"
-                        style="display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: var(--primary-blue); color: white; font-family: var(--font-primary); font-weight: 600; border-radius: 8px; text-decoration: none; transition: all 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
-                    >
-                        Get a Quote
-                        <svg
-                            style="width: 20px; height: 20px;"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
+                <div class="max-w-7xl mx-auto px-8 relative z-10">
+                    <!-- Section Header -->
+                    <div class="text-center mb-16">
+                        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#2F8EF8]/10 to-[#94F9FD]/10 px-4 py-2 rounded-full border border-[#2F8EF8]/20 mb-6">
+                            <div class="w-2 h-2 bg-[#2F8EF8] rounded-full animate-pulse"></div>
+                            <span class="text-sm font-bold uppercase tracking-widest text-[#2F8EF8]" style="font-family: 'Poppins', sans-serif;">
+                                Available Templates
+                            </span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6" style="font-family: 'Poppins', sans-serif;">
+                            <span class="text-white">{name}</span>
+                            <span class="text-[#2F8EF8]"> Templates</span>
+                        </h2>
+                        <div class="w-24 h-1 bg-gradient-to-r from-[#94F9FD] to-[#2F8EF8] rounded-full mx-auto mb-6"></div>
+                        <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed" style="font-family: 'Poppins', sans-serif;">
+                            Choose from our professionally designed templates tailored for {name.toLowerCase()}
+                        </p>
+                    </div>
 
-                <!-- Image -->
-                <div>
-                    <img
-                        src={image}
-                        alt={name}
-                        style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);"
-                    />
+                    <!-- Templates Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {templates.map((template) => (
+                            <div class="template-card group relative overflow-hidden rounded-2xl border-2 border-[#2F8EF8]/30 hover:border-[#94F9FD] transition-all duration-500">
+                                <!-- Image -->
+                                <div class="relative overflow-hidden h-[320px]">
+                                    <img 
+                                        src={template.data.image || template.data.thumbnail || 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=800&q=80'} 
+                                        alt={template.data.title}
+                                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <!-- Base Gradient -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#161F30] via-[#161F30]/60 to-transparent"></div>
+                                    
+                                    <!-- Hover Overlay -->
+                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#2F8EF8]/45 via-[#2F8EF8]/25 to-[#94F9FD]/15 backdrop-blur-[12px]"></div>
+                                </div>
+
+                                <!-- Default Content -->
+                                <div class="content-default absolute bottom-0 left-0 right-0 p-6 z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                                    <div class="inline-block px-3 py-1 bg-[#2F8EF8]/90 backdrop-blur-sm rounded-full mb-3">
+                                        <span class="text-xs font-bold uppercase tracking-wider text-white" style="font-family: 'Poppins', sans-serif;">
+                                            {template.data.category}
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white" style="font-family: 'Poppins', sans-serif;">
+                                        {template.data.title}
+                                    </h3>
+                                </div>
+
+                                <!-- Hover Content -->
+                                <div class="content-expanded absolute bottom-0 left-0 right-0 p-6 z-10 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                    <div class="inline-block px-3 py-1 bg-[#2F8EF8]/90 backdrop-blur-sm rounded-full mb-3">
+                                        <span class="text-xs font-bold uppercase tracking-wider text-white" style="font-family: 'Poppins', sans-serif;">
+                                            {template.data.category}
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#94F9FD] transition-colors" style="font-family: 'Poppins', sans-serif;">
+                                        {template.data.title}
+                                    </h3>
+                                    <p class="text-white text-sm mb-3 leading-relaxed" style="font-family: 'Poppins', sans-serif;">
+                                        {template.data.description}
+                                    </p>
+                                    {template.data.stats && (
+                                        <div class="flex items-center gap-2 mb-3">
+                                            <svg class="w-4 h-4 text-[#94F9FD]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                            </svg>
+                                            <span class="text-[#94F9FD] text-sm font-semibold" style="font-family: 'Poppins', sans-serif;">
+                                                {template.data.stats}
+                                            </span>
+                                        </div>
+                                    )}
+                                    <a 
+                                        href={template.data.liveDemoUrl || '#'}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="inline-flex items-center gap-2 text-white hover:text-[#94F9FD] transition-colors text-sm font-semibold"
+                                        style="font-family: 'Poppins', sans-serif;"
+                                    >
+                                        View Live Demo
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        )}
     </main>
-
-    <Footer />
 </BaseLayout>
 
 <style>
-    @media (max-width: 768px) {
-        section > div {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-        }
+    .template-card {
+        background: #1b222c;
+        box-shadow: 0 4px 20px rgba(47, 142, 248, 0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .template-card:hover {
+        transform: translateY(-8px);
+        box-shadow:
+            0 12px 40px rgba(47, 142, 248, 0.5),
+            0 0 30px rgba(148, 249, 253, 0.3);
+    }
+
+    .content-default,
+    .content-expanded {
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
     }
 </style>

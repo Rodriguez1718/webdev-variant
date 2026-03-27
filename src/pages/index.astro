@@ -1,14 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/layout/Hero.astro";
+import About from "../components/layout/About.astro";
 import Trades from "../components/layout/Trades.astro";
+import FeaturedTemplates from "../components/layout/FeaturedTemplates.astro";
 import Statistics from "../components/layout/Statistics.astro";
 import Reviews from "../components/layout/Reviews.astro";
 ---
 
 <BaseLayout title="Home - Webdev Variant">
 	<Hero />
+	<About />
 	<Trades limit={6} />
+	<FeaturedTemplates />
 	<Statistics />
 	<Reviews />
 </BaseLayout>

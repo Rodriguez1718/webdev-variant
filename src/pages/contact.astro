@@ -1,15 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero2 from "../components/layout/Hero2.astro";
 ---
 
 <BaseLayout
     title="Contact Us - Webdev Variant"
     description="Get in touch with our team for professional HVAC and plumbing services"
 >
-    <main class="min-h-screen py-16 px-4">
+    <Hero2
+        title="Get In Touch"
+        subtitle="Contact Us"
+        description="Ready to transform your business? Let's talk about how we can help you dominate your local market and generate more leads."
+    />
+
+    <section class="min-h-screen py-16 px-4">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl font-bold mb-8">Contact Us</h1>
-            <p class="text-lg text-gray-600">Content coming soon...</p>
+            <p class="text-lg text-gray-300">Content coming soon...</p>
         </div>
-    </main>
+    </section>
 </BaseLayout>
