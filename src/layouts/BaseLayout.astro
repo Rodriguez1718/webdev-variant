@@ -1,4 +1,8 @@
 ---
+import Footer from '../components/layout/Footer.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import "../styles/global.css"
+
 interface Props {
     title?: string;
     description?: string;
@@ -39,8 +43,12 @@ const {
         <title>{title}</title>
     </head>
     <body>
+        <Navbar />
         <!-- Main Content Slot -->
-        <slot />
+        <main>
+            <slot />
+        </main>
+        <Footer />
     </body>
 </html>
 
