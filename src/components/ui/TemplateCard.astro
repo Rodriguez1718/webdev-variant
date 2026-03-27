@@ -1,4 +1,6 @@
 ---
+import Button from "./Button.astro";
+
 interface Props {
     title: string;
     category: string;
@@ -17,95 +19,32 @@ const {
     image,
     stats,
     href,
-    linkText = "View Templates",
+    linkText = "View Live Demo",
     featured = false,
 } = Astro.props;
 ---
 
-<div
-    class={`template-card group relative overflow-hidden rounded-2xl border-2 border-[#2F8EF8]/30 hover:border-[#94F9FD] transition-all duration-500 ${featured ? "lg:row-span-2" : ""}`}
->
-    <!-- Image -->
-    <div
-        class={`relative overflow-hidden ${featured ? "h-[600px]" : "h-[280px]"}`}
-    >
+<div class={`template-card ${featured ? "lg:row-span-2" : ""}`}>
+    <div class="card-image">
         <img
             src={image ||
                 "https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=800&q=80"}
             alt={title}
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <!-- Base Gradient Overlay -->
-        <div
-            class="absolute inset-0 bg-gradient-to-t from-[#161F30] via-[#161F30]/60 to-transparent"
-        >
-        </div>
+        <div class="image-gradient"></div>
 
-        <!-- Glassmorphism Hover Overlay -->
-        <div
-            class="template-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#2F8EF8]/45 via-[#2F8EF8]/25 to-[#94F9FD]/15 backdrop-blur-[12px]"
-        >
+        <!-- Default content overlaid on image -->
+        <div class="content-default">
+            <h3 class="card-title">{title}</h3>
         </div>
     </div>
 
-    <!-- Default Content - Always Visible -->
-    <div
-        class="content-default absolute bottom-0 left-0 right-0 p-8 z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none"
-    >
-        <!-- Category Badge -->
-        <div
-            class="inline-block px-3 py-1 bg-[#2F8EF8]/90 backdrop-blur-sm rounded-full mb-4"
-        >
-            <span
-                class="text-xs font-bold uppercase tracking-wider text-white"
-                style="font-family: 'Poppins', sans-serif;"
-            >
-                {category}
-            </span>
-        </div>
-
-        <!-- Title -->
-        <h3
-            class="text-2xl md:text-3xl font-bold text-white"
-            style="font-family: 'Poppins', sans-serif;"
-        >
-            {title}
-        </h3>
-    </div>
-
-    <!-- Hover Content - Shows on Hover -->
-    <div
-        class="content-expanded absolute bottom-0 left-0 right-0 p-8 z-10 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 pointer-events-none group-hover:pointer-events-auto"
-    >
-        <!-- Category Badge -->
-        <div
-            class="inline-block px-3 py-1 bg-[#2F8EF8]/90 backdrop-blur-sm rounded-full mb-4"
-        >
-            <span
-                class="text-xs font-bold uppercase tracking-wider text-white"
-                style="font-family: 'Poppins', sans-serif;"
-            >
-                {category}
-            </span>
-        </div>
-
-        <!-- Title -->
-        <h3
-            class="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-[#94F9FD] transition-colors"
-            style="font-family: 'Poppins', sans-serif;"
-        >
-            {title}
-        </h3>
-
-        <!-- Description -->
-        <p
-            class="text-white mb-4 leading-relaxed text-shadow-lg"
-            style="font-family: 'Poppins', sans-serif;"
-        >
+    <!-- Hover content -->
+    <div class="content-expanded">
+        <h3 class="expanded-title">{title}</h3>
+        <p class="expanded-description">
             {description}
         </p>
-
-        <!-- Stats -->
         {
             stats && (
                 <div class="flex items-center gap-2 mb-4">
@@ -123,7 +62,7 @@ const {
                         />
                     </svg>
                     <span
-                        class="text-[#94F9FD] font-semibold"
+                        class="text-[#94F9FD] font-semibold text-sm"
                         style="font-family: 'Poppins', sans-serif;"
                     >
                         {stats}
@@ -131,16 +70,15 @@ const {
                 </div>
             )
         }
-
-        <!-- Link -->
-        <a
+        <Button
+            variant="secondary"
+            size="sm"
             href={href}
-            class="inline-flex items-center gap-2 text-white hover:text-[#94F9FD] transition-colors group/link"
-            style="font-family: 'Poppins', sans-serif;"
+            ariaLabel={`${linkText} - ${title}`}
         >
-            <span class="font-semibold">{linkText}</span>
+            {linkText}
             <svg
-                class="w-5 h-5 transition-transform group-hover/link:translate-x-1"
+                class="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -151,15 +89,31 @@ const {
                     stroke-width="2"
                     d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
-        </a>
+        </Button>
     </div>
 </div>
 
 <style>
     .template-card {
+        position: relative;
+        height: 380px;
+        border-radius: 16px;
+        overflow: hidden;
         background: #1b222c;
+        border: 2px solid #2f8ef8;
         box-shadow: 0 4px 20px rgba(47, 142, 248, 0.3);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Featured card - larger height */
+    .template-card.lg\:row-span-2 {
+        height: 380px;
+    }
+
+    @media (min-width: 1024px) {
+        .template-card.lg\:row-span-2 {
+            height: 788px; /* 380px * 2 + 28px gap */
+        }
     }
 
     .template-card:hover {
@@ -167,21 +121,156 @@ const {
         box-shadow:
             0 12px 40px rgba(47, 142, 248, 0.5),
             0 0 30px rgba(148, 249, 253, 0.3);
+        border-color: #94f9fd;
     }
 
-    .template-overlay {
+    /* Image Section - Full Card */
+    .card-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .template-card:hover .card-image img {
+        transform: scale(1.1);
+    }
+
+    .image-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(22, 31, 48, 0.4) 50%,
+            rgba(22, 31, 48, 0.9) 100%
+        );
+        transition: background 0.4s ease;
+    }
+
+    .template-card:hover .image-gradient {
+        background: linear-gradient(
+            180deg,
+            rgba(22, 31, 48, 0.2) 0%,
+            rgba(22, 31, 48, 0.5) 50%,
+            rgba(22, 31, 48, 0.8) 100%
+        );
+    }
+
+    /* Default Content - Overlaid at Bottom */
+    .content-default {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 28px 32px;
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .template-card:hover .content-default {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .card-title {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.2;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Expanded Content with Glassmorphism */
+    .content-expanded {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 28px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        z-index: 3;
+        min-height: 100%;
+        /* Glassmorphism effect */
+        background: linear-gradient(
+            180deg,
+            rgba(47, 142, 248, 0.15) 0%,
+            rgba(47, 142, 248, 0.35) 40%,
+            rgba(148, 249, 253, 0.45) 100%
+        );
+        backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
 
-    .content-default {
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    .template-card:hover .content-expanded {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
     }
 
-    .content-expanded {
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    .expanded-title {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
     }
 
-    .text-shadow-lg {
+    .expanded-description {
+        font-family: var(--font-primary);
+        font-size: 0.95rem;
+        color: #ffffff;
+        line-height: 1.5;
+        margin-bottom: 16px;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+        .template-card {
+            height: 350px;
+        }
+
+        .content-default {
+            padding: 24px 28px;
+        }
+
+        .content-expanded {
+            padding: 24px 28px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+        }
+
+        .expanded-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .expanded-description {
+            font-size: 0.875rem;
+            margin-bottom: 14px;
+        }
     }
 </style>
