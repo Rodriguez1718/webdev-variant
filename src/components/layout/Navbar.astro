@@ -8,7 +8,10 @@ import { getTradeIcon } from "../../utils/tradeIcons";
 const trades = await getCollection("trades");
 ---
 
-<nav class="sticky top-0 w-full z-50 bg-[#161F30] border-b border-[#94F9FD]/20">
+<nav
+    class="sticky top-0 w-full z-50 glass border-b border-[#94F9FD]/20"
+    style="box-shadow: 0 4px 20px rgba(148, 249, 253, 0.1);"
+>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Logo / Home Link -->

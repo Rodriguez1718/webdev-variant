@@ -84,19 +84,16 @@ const {
         backface-visibility: hidden;
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(47, 142, 248, 0.3);
     }
 
     .card-front {
-        background: white;
+        background: #1b222c;
+        border: 2px solid #2f8ef8;
     }
 
     .card-back {
-        background: linear-gradient(
-            135deg,
-            var(--primary-blue) 0%,
-            #1d4ed8 100%
-        );
+        background: linear-gradient(135deg, #2f8ef8 0%, #94f9fd 100%);
         transform: rotateY(180deg);
         display: flex;
         align-items: center;
@@ -129,14 +126,14 @@ const {
         font-family: var(--font-primary);
         font-size: var(--font-h3);
         font-weight: 700;
-        color: var(--text-charcoal);
+        color: #ffffff;
         margin-bottom: 8px;
     }
 
     .card-tagline {
         font-family: var(--font-primary);
         font-size: var(--font-nav);
-        color: var(--secondary-gray-blue);
+        color: #94f9fd;
     }
 
     .card-back-content {
@@ -163,19 +160,22 @@ const {
         display: inline-flex;
         align-items: center;
         padding: 12px 24px;
-        background: white;
-        color: var(--primary-blue);
+        background: #161f30;
+        color: #ffffff;
         font-family: var(--font-primary);
         font-size: var(--font-nav);
         font-weight: 600;
         border-radius: 8px;
         text-decoration: none;
         transition: all 0.3s ease;
+        border: 2px solid #94f9fd;
     }
 
     .card-button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(148, 249, 253, 0.6);
+        background: #94f9fd;
+        color: #161f30;
     }
 
     @media (max-width: 768px) {
