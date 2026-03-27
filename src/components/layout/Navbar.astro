@@ -8,9 +8,7 @@ import { getTradeIcon } from "../../utils/tradeIcons";
 const trades = await getCollection("trades");
 ---
 
-<nav
-    class="sticky top-0 w-full z-50 bg-[#161F30] border-b border-[#94F9FD]/20"
->
+<nav class="sticky top-0 w-full z-50 bg-[#161F30] border-b border-[#94F9FD]/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Logo / Home Link -->
@@ -40,16 +38,14 @@ const trades = await getCollection("trades");
                 <div class="flex items-center gap-1">
                     <a
                         href="/reviews"
-                        class="navbar-link nav-item font-primary px-3 py-2 font-semibold transition-colors duration-200 whitespace-nowrap"
-                        style="font-size: 16px;"
+                        class="navbar-link nav-item text-nav px-3 py-2 transition-colors duration-200 whitespace-nowrap"
                         data-path="/reviews"
                     >
                         Reviews
                     </a>
                     <a
                         href="/our-work"
-                        class="navbar-link nav-item font-primary px-3 py-2 font-semibold transition-colors duration-200 whitespace-nowrap"
-                        style="font-size: 16px;"
+                        class="navbar-link nav-item text-nav px-3 py-2 transition-colors duration-200 whitespace-nowrap"
                         data-path="/our-work"
                     >
                         Our Work
@@ -57,8 +53,7 @@ const trades = await getCollection("trades");
                     <div class="relative group">
                         <a
                             href="/trades-we-serve"
-                            class="navbar-link nav-item font-primary px-3 py-2 font-semibold transition-colors duration-200 flex items-center whitespace-nowrap"
-                            style="font-size: 16px;"
+                            class="navbar-link nav-item text-nav px-3 py-2 transition-colors duration-200 flex items-center whitespace-nowrap"
                             data-path="/trades-we-serve"
                         >
                             Trades We Serve
@@ -93,7 +88,10 @@ const trades = await getCollection("trades");
                                             >
                                                 <g
                                                     set:html={getTradeIcon(
-                                                        trade.data.name.replace(' Services', ''),
+                                                        trade.data.name.replace(
+                                                            " Services",
+                                                            "",
+                                                        ),
                                                     )}
                                                 />
                                             </svg>
@@ -113,16 +111,14 @@ const trades = await getCollection("trades");
                     </div>
                     <a
                         href="/what-we-do"
-                        class="navbar-link nav-item font-primary px-3 py-2 font-semibold transition-colors duration-200 whitespace-nowrap"
-                        style="font-size: 16px;"
+                        class="navbar-link nav-item text-nav px-3 py-2 transition-colors duration-200 whitespace-nowrap"
                         data-path="/what-we-do"
                     >
                         What We Do
                     </a>
                     <a
                         href="/about"
-                        class="navbar-link nav-item font-primary px-3 py-2 font-semibold transition-colors duration-200 whitespace-nowrap"
-                        style="font-size: 16px;"
+                        class="navbar-link nav-item text-nav px-3 py-2 transition-colors duration-200 whitespace-nowrap"
                         data-path="/about"
                     >
                         About
@@ -179,14 +175,12 @@ const trades = await getCollection("trades");
         >
             <a
                 href="/reviews"
-                class="mobile-nav-item font-primary text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 font-semibold transition-colors duration-200"
-                style="font-size: 15px;"
+                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/reviews">Reviews</a
             >
             <a
                 href="/our-work"
-                class="mobile-nav-item font-primary text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 font-semibold transition-colors duration-200"
-                style="font-size: 15px;"
+                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/our-work">Our Work</a
             >
             <div
@@ -194,8 +188,7 @@ const trades = await getCollection("trades");
             >
                 <a
                     href="/trades-we-serve"
-                    class="mobile-nav-item font-primary text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 px-3 py-2 font-semibold transition-colors duration-200 flex-1"
-                    style="font-size: 15px;"
+                    class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 px-3 py-2 transition-colors duration-200 flex-1"
                     data-path="/trades-we-serve"
                 >
                     Trades We Serve
@@ -235,12 +228,17 @@ const trades = await getCollection("trades");
                                 viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
-                                <g set:html={getTradeIcon(trade.data.name.replace(' Services', ''))} />
+                                <g
+                                    set:html={getTradeIcon(
+                                        trade.data.name.replace(
+                                            " Services",
+                                            "",
+                                        ),
+                                    )}
+                                />
                             </svg>
                             <div>
-                                <div class="font-medium">
-                                    {trade.data.name}
-                                </div>
+                                <div class="font-medium">{trade.data.name}</div>
                                 <div class="text-base text-[#94F9FD]/70">
                                     {trade.data.tagline}
                                 </div>
@@ -251,14 +249,12 @@ const trades = await getCollection("trades");
             </div>
             <a
                 href="/what-we-do"
-                class="mobile-nav-item font-primary text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 font-semibold transition-colors duration-200"
-                style="font-size: 15px;"
+                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/what-we-do">What We Do</a
             >
             <a
                 href="/about"
-                class="mobile-nav-item font-primary text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 font-semibold transition-colors duration-200"
-                style="font-size: 15px;"
+                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/about">About</a
             >
             <div class="px-3 py-2">

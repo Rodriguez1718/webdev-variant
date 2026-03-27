@@ -30,51 +30,64 @@ const {
 <section class="relative h-screen flex items-center overflow-hidden">
   <!-- Content -->
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
-      
+    <div
+      class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]"
+    >
       <!-- Left Image -->
-      <div class="lg:col-span-3 flex justify-center lg:justify-end animate-[fade-in-left_1s_ease-out]">
+      <div
+        class="lg:col-span-3 flex justify-center lg:justify-end animate-[fade-in-left_1s_ease-out]"
+      >
         <div class="relative">
-          <div class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2" style="border-color: #94F9FD;">
-            <img 
+          <div
+            class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2"
+            style="border-color: #94F9FD;"
+          >
+            <img
               src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=626&q=80"
-              alt="Professional businessman in construction industry" 
+              alt="Professional businessman in construction industry"
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+            >
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Centered Content -->
       <div class="lg:col-span-6 text-center space-y-8">
-        
         <!-- Small Title -->
         <div class="animate-[fade-in_1s_ease-out] mb-6">
-          <span
-            class="inline-block font-semibold tracking-[0.2em] uppercase text-sm"
-            style="color: #94F9FD;"
-          >
+          <span class="text-eyebrow" style="color: #94F9FD;">
             Your Growth Partner
           </span>
         </div>
 
         <!-- Main Heading -->
-        <div class="space-y-6 animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.2s] [animation-fill-mode:forwards]">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight" style="color: #FFFFFF;">
+        <div
+          class="space-y-6 animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.2s] [animation-fill-mode:forwards]"
+        >
+          <h1 class="heading-primary" style="color: #FFFFFF;">
             Build. <span style="color: #94F9FD;">Grow</span>. Dominate.
           </h1>
         </div>
 
         <!-- Description -->
-        <div class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.4s] [animation-fill-mode:forwards]">
-          <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style="color: #FFFFFF;">
-            Over 2,500 contractors and trades professionals have trusted us to elevate their digital presence. Transform your business online and reach more customers than ever before.
+        <div
+          class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.4s] [animation-fill-mode:forwards]"
+        >
+          <p class="text-description max-w-2xl mx-auto" style="color: #FFFFFF;">
+            Over 2,500 contractors and trades professionals have trusted us to
+            elevate their digital presence. Transform your business online and
+            reach more customers than ever before.
           </p>
         </div>
 
         <!-- CTA Button -->
-        <div class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.6s] [animation-fill-mode:forwards] pt-4">
+        <div
+          class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.6s] [animation-fill-mode:forwards] pt-4"
+        >
           <Button
             variant="primary"
             size="lg"
@@ -92,44 +105,59 @@ const {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              ></path>
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </Button>
         </div>
 
         <!-- Trust/Stats Section -->
-        <div class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.8s] [animation-fill-mode:forwards] pt-8">
-          <p class="text-sm mb-4" style="color: #FFFFFF;">Trusted by contractors and trades professionals nationwide</p>
+        <div
+          class="animate-[fade-in-up_1s_ease-out] opacity-0 [animation-delay:0.8s] [animation-fill-mode:forwards] pt-8"
+        >
+          <p class="text-nav mb-4" style="color: #FFFFFF;">
+            Trusted by contractors and trades professionals nationwide
+          </p>
           <div class="flex items-center justify-center space-x-8 opacity-80">
-            <div class="font-semibold text-lg" style="color: #2F8EF8;">2,500+</div>
-            <div class="font-semibold text-lg" style="color: #2F8EF8;">Contractors</div>
-            <div class="font-semibold text-lg" style="color: #2F8EF8;">Served</div>
-            <div class="font-semibold text-lg" style="color: #2F8EF8;">Nationwide</div>
+            <div class="text-nav font-semibold" style="color: #2F8EF8;">
+              2,500+
+            </div>
+            <div class="text-nav font-semibold" style="color: #2F8EF8;">
+              Contractors
+            </div>
+            <div class="text-nav font-semibold" style="color: #2F8EF8;">
+              Served
+            </div>
+            <div class="text-nav font-semibold" style="color: #2F8EF8;">
+              Nationwide
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Right Image -->
-      <div class="lg:col-span-3 flex justify-center lg:justify-start animate-[fade-in-right_1s_ease-out]">
+      <div
+        class="lg:col-span-3 flex justify-center lg:justify-start animate-[fade-in-right_1s_ease-out]"
+      >
         <div class="relative">
-          <div class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2" style="border-color: #2F8EF8;">
-            <img 
+          <div
+            class="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl border-2"
+            style="border-color: #2F8EF8;"
+          >
+            <img
               src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=676&q=80"
-              alt="Professional construction worker with hard hat" 
+              alt="Professional construction worker with hard hat"
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+            >
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
 </section>
-
-
 
 <style>
   .slideshow-image.active {
@@ -179,7 +207,8 @@ const {
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
