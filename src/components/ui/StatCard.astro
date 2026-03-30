@@ -3,9 +3,10 @@ interface Props {
     icon: string;
     value: string;
     label: string;
+    variant?: "light" | "dark" | "teal";
 }
 
-const { icon, value, label } = Astro.props;
+const { icon, value, label, variant = "light" } = Astro.props;
 
 // Icon mapping
 const icons: Record<string, string> = {
@@ -17,16 +18,47 @@ const icons: Record<string, string> = {
 };
 
 const iconPath = icons[icon] || icons.clock;
+
+// Variant styles
+const variantStyles = {
+    light: {
+        card: "bg-white border-2 border-gray-200 hover:border-[#128C80] shadow-sm",
+        iconBg: "bg-gradient-to-br from-[#128C80]/20 to-[#128C80]/40",
+        iconColor: "text-[#128C80]",
+        textColor: "text-gray-600",
+        shadowColor: "rgba(18, 140, 128, 0.1)",
+        hoverShadowColor: "rgba(18, 140, 128, 0.2)"
+    },
+    dark: {
+        card: "bg-[#292524] border-2 border-[#292524] hover:border-[#128C80] shadow-sm",
+        iconBg: "bg-gradient-to-br from-[#128C80]/20 to-[#128C80]/40",
+        iconColor: "text-[#128C80]",
+        textColor: "text-gray-300",
+        shadowColor: "rgba(41, 37, 36, 0.3)",
+        hoverShadowColor: "rgba(18, 140, 128, 0.2)"
+    },
+    teal: {
+        card: "bg-[#128C80] border-2 border-[#128C80] hover:border-[#0F6B5F] shadow-sm",
+        iconBg: "bg-white/20",
+        iconColor: "text-white",
+        textColor: "text-white/90",
+        shadowColor: "rgba(18, 140, 128, 0.3)",
+        hoverShadowColor: "rgba(18, 140, 128, 0.4)"
+    }
+};
+
+const currentVariant = variantStyles[variant];
 ---
 
 <div
-    class="stat-card bg-[#1B222C] border-2 border-[#2F8EF8]/30 rounded-2xl p-6 hover:border-[#94F9FD] transition-all duration-300"
+    class={`stat-card ${currentVariant.card} rounded-2xl p-6 transition-all duration-300`}
+    data-variant={variant}
 >
     <div
-        class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2F8EF8]/20 to-[#94F9FD]/20 flex items-center justify-center mb-3"
+        class={`w-10 h-10 rounded-full ${currentVariant.iconBg} flex items-center justify-center mb-3`}
     >
         <svg
-            class="w-5 h-5 text-[#94F9FD]"
+            class={`w-5 h-5 ${currentVariant.iconColor}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -45,7 +77,7 @@ const iconPath = icons[icon] || icons.clock;
         {value}
     </div>
     <p
-        class="text-gray-400 text-xs"
+        class={`${currentVariant.textColor} text-xs`}
         style="font-family: 'Poppins', sans-serif;"
     >
         {label}
@@ -54,21 +86,50 @@ const iconPath = icons[icon] || icons.clock;
 
 <style>
     .stat-card {
-        box-shadow: 0 4px 20px rgba(47, 142, 248, 0.2);
         transition: all 0.3s ease;
     }
 
-    .stat-card:hover {
+    .stat-card[data-variant="light"] {
+        box-shadow: 0 4px 20px rgba(18, 140, 128, 0.1);
+    }
+
+    .stat-card[data-variant="light"]:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(148, 249, 253, 0.3);
+        box-shadow: 0 8px 30px rgba(18, 140, 128, 0.2);
+    }
+
+    .stat-card[data-variant="dark"] {
+        box-shadow: 0 4px 20px rgba(41, 37, 36, 0.3);
+    }
+
+    .stat-card[data-variant="dark"]:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(18, 140, 128, 0.2);
+    }
+
+    .stat-card[data-variant="teal"] {
+        box-shadow: 0 4px 20px rgba(18, 140, 128, 0.3);
+    }
+
+    .stat-card[data-variant="teal"]:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(18, 140, 128, 0.4);
     }
 
     .stat-number {
-        background: linear-gradient(135deg, #94f9fd 0%, #2f8ef8 100%);
+        background: linear-gradient(135deg, #128C80 0%, #1E3A5F 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         line-height: 1.2;
+    }
+
+    /* Variant-specific number colors */
+    .stat-card[data-variant="teal"] .stat-number {
+        background: white;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     /* Special handling for multi-line text */

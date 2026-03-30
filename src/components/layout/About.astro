@@ -3,32 +3,32 @@ import Button from "../ui/Button.astro";
 import StatCard from "../ui/StatCard.astro";
 ---
 
-<section class="relative py-20 overflow-hidden bg-[#EEF2F7]">
+<section class="relative py-20 overflow-hidden bg-[#FAF8F5]">
     <!-- Dynamic Background with Mesh Gradient -->
     <div
-        class="absolute inset-0 bg-gradient-to-br from-[#EEF2F7] via-[#E5E9EE] to-[#EEF2F7]"
+        class="absolute inset-0 bg-gradient-to-br from-[#FAF8F5] via-[#F5F3F0] to-[#FAF8F5]"
     >
     </div>
     <div
-        class="absolute inset-0 bg-gradient-to-tr from-[#38B0F8]/5 via-transparent to-[#F5A623]/5"
+        class="absolute inset-0 bg-gradient-to-tr from-[#128C80]/5 via-transparent to-[#128C80]/5"
     >
     </div>
 
     <!-- Decorative gradients -->
     <div
         class="absolute top-20 left-0 w-96 h-96 opacity-5 pointer-events-none"
-        style="background: radial-gradient(circle, #38B0F8 0%, transparent 70%);"
+        style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"
     >
     </div>
     <div
         class="absolute bottom-20 right-0 w-96 h-96 opacity-5 pointer-events-none"
-        style="background: radial-gradient(circle, #F5A623 0%, transparent 70%);"
+        style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"
     >
     </div>
 
     <!-- Decorative Section Divider - Top -->
     <div
-        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 to-transparent"
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"
     >
     </div>
 
@@ -37,7 +37,7 @@ import StatCard from "../ui/StatCard.astro";
         <div class="mb-12">
             <!-- Badge -->
             <div
-                class="inline-flex items-center gap-2 bg-[#1E3A5F] px-4 py-2 rounded-full border border-[#1E3A5F] mb-6"
+                class="inline-flex items-center gap-2 bg-[#128C80] px-4 py-2 rounded-full border border-[#128C80] mb-6"
             >
                 <div class="w-2 h-2 bg-white rounded-full">
                 </div>
@@ -54,7 +54,7 @@ import StatCard from "../ui/StatCard.astro";
                 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] max-w-3xl"
                 style="font-family: 'Poppins', sans-serif;"
             >
-                The Agency Built <span class="text-[#1E3A5F]">Different.</span>
+                The Agency Built <span class="text-[#128C80]">Different.</span>
             </h2>
         </div>
 
@@ -87,11 +87,11 @@ import StatCard from "../ui/StatCard.astro";
 
                 <!-- Feature Box -->
                 <div
-                    class="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-[#F5A623] transition-all duration-300 shadow-sm"
+                    class="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-[#128C80] transition-all duration-300 shadow-sm"
                 >
                     <div class="flex items-start gap-4">
                         <div
-                            class="w-12 h-12 rounded-full bg-[#F5A623] flex items-center justify-center flex-shrink-0"
+                            class="w-12 h-12 rounded-full bg-[#128C80] flex items-center justify-center flex-shrink-0"
                         >
                             <svg
                                 class="w-6 h-6 text-white"
@@ -133,21 +133,25 @@ import StatCard from "../ui/StatCard.astro";
                     icon="clock"
                     value="10+"
                     label="Years of Experience"
+                    variant="dark"
                 />
                 <StatCard
                     icon="building"
                     value="Built for Trades"
                     label="Industry Specialized"
+                    variant="teal"
                 />
                 <StatCard
                     icon="users"
                     value="500+"
                     label="Contractors Served"
+                    variant="dark"
                 />
                 <StatCard
                     icon="star"
                     value="4.9/5"
                     label="Client Satisfaction"
+                    variant="teal"
                 />
             </div>
         </div>
@@ -179,14 +183,14 @@ import StatCard from "../ui/StatCard.astro";
 
     <!-- Decorative Section Divider - Bottom -->
     <div
-        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 to-transparent"
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"
     >
     </div>
 </section>
 
 <style>
     .stat-number {
-        background: linear-gradient(135deg, #38B0F8 0%, #1E3A5F 100%);
+        background: linear-gradient(135deg, #128C80 0%, #1E3A5F 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

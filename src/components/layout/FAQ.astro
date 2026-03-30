@@ -44,16 +44,16 @@ const {
 } = Astro.props;
 ---
 
-<section class="faq-section relative py-20 overflow-hidden bg-[#EEF2F7]">
+<section class="faq-section relative py-20 overflow-hidden bg-[#1B1B1B]">
     <!-- Dynamic Background with Mesh Gradient -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#EEF2F7] via-[#E5E9EE] to-[#EEF2F7]"></div>
-    <div class="absolute inset-0 bg-gradient-to-tr from-[#38B0F8]/5 via-transparent to-[#F5A623]/5"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1B1B1B] via-[#1F1F1F] to-[#1B1B1B]"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-[#128C80]/5 via-transparent to-[#F5A623]/5"></div>
 
     <!-- Top Separator Line -->
-    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 to-transparent"></div>
+    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"></div>
     
     <!-- Decorative gradients -->
-    <div class="absolute top-40 left-0 w-96 h-96 opacity-5 pointer-events-none" style="background: radial-gradient(circle, #38B0F8 0%, transparent 70%);"></div>
+    <div class="absolute top-40 left-0 w-96 h-96 opacity-5 pointer-events-none" style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"></div>
     <div class="absolute bottom-40 right-0 w-96 h-96 opacity-5 pointer-events-none" style="background: radial-gradient(circle, #F5A623 0%, transparent 70%);"></div>
 
     <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
@@ -61,7 +61,7 @@ const {
             <!-- Left Column - Questions List -->
             <div class="faq-questions">
                 <!-- Section Badge -->
-                <div class="inline-flex items-center gap-2 bg-[#1E3A5F] px-4 py-2 rounded-full border border-[#1E3A5F] mb-6">
+                <div class="inline-flex items-center gap-2 bg-[#128C80] px-4 py-2 rounded-full border border-[#128C80] mb-6">
                     <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                     <span class="text-eyebrow text-white">
                         {subtitle}
@@ -69,26 +69,26 @@ const {
                 </div>
 
                 <!-- Title -->
-                <h2 class="h2 text-[#1E3A5F] mb-10">
-                    {title}
+                <h2 class="h2 text-white mb-10">
+                    Questions, <span class="text-[#128C80]">Answered.</span>
                 </h2>
 
                 <!-- Questions List -->
                 <div class="space-y-3">
                     {faqs.map((faq, index) => (
                         <button
-                            class={`faq-question-btn w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-300 group ${index === 0 ? 'border-[#38B0F8] bg-[#38B0F8]/10' : 'border-[#38B0F8]/20 hover:border-[#38B0F8]'}`}
+                            class={`faq-question-btn w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-300 group ${index === 0 ? 'border-[#128C80] bg-[#128C80]/10' : 'border-[#128C80]/20 hover:border-[#128C80]'}`}
                             data-faq-index={index}
                             aria-label={`View answer to: ${faq.question}`}
                         >
                             <div class="flex items-center gap-4">
-                                <span class={`font-bold text-lg shrink-0 transition-colors ${index === 0 ? 'text-[#38B0F8]' : 'text-[#F5A623]'}`}>
+                                <span class={`font-bold text-lg shrink-0 transition-colors ${index === 0 ? 'text-[#128C80]' : 'text-[#F5A623]'}`}>
                                     {String(index + 1).padStart(2, '0')}
                                 </span>
-                                <span class={`text-nav transition-colors flex-1 ${index === 0 ? 'text-[#1E3A5F]' : 'text-gray-600 group-hover:text-[#1E3A5F]'}`}>
+                                <span class={`text-nav transition-colors flex-1 ${index === 0 ? 'text-white' : 'text-gray-300 group-hover:text-white'}`}>
                                     {faq.question}
                                 </span>
-                                <svg class={`w-5 h-5 text-[#38B0F8] transition-opacity shrink-0 ${index === 0 ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class={`w-5 h-5 text-[#128C80] transition-opacity shrink-0 ${index === 0 ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </div>
@@ -100,7 +100,7 @@ const {
             <!-- Right Column - Answer Display -->
             <div class="faq-answers relative">
                 <!-- Static Card Container -->
-                <div class="glass border-2 border-[#38B0F8]/30 rounded-3xl p-8 min-h-[380px] flex flex-col justify-between bg-white shadow-sm">
+                <div class="glass border-2 border-[#128C80]/30 rounded-3xl p-8 min-h-[380px] flex flex-col justify-between bg-[#292524] shadow-sm">
                     <!-- Content Container with Transitions -->
                     <div class="relative flex-1 overflow-hidden">
                         {faqs.map((faq, index) => (
@@ -110,23 +110,23 @@ const {
                             >
                                 <!-- Question Badge -->
                                 <div class="inline-flex items-center gap-3 mb-4">
-                                    <div class="w-9 h-9 rounded-full bg-gradient-to-r from-[#38B0F8] to-[#F5A623] flex items-center justify-center shrink-0">
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-r from-[#128C80] to-[#F5A623] flex items-center justify-center shrink-0">
                                         <span class="text-white font-bold text-xs">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
                                     </div>
-                                    <span class="text-eyebrow text-[#38B0F8] text-xs">
+                                    <span class="text-eyebrow text-[#128C80] text-xs">
                                         Question {String(index + 1).padStart(2, '0')}
                                     </span>
                                 </div>
 
                                 <!-- Question Title -->
-                                <h3 class="text-2xl font-bold text-[#1E3A5F] mb-4 leading-tight">
+                                <h3 class="text-2xl font-bold text-white mb-4 leading-tight">
                                     {faq.question}
                                 </h3>
 
                                 <!-- Answer -->
-                                <p class="text-base text-gray-600 leading-relaxed">
+                                <p class="text-base text-gray-300 leading-relaxed">
                                     {faq.answer}
                                 </p>
                             </div>
@@ -134,10 +134,10 @@ const {
                     </div>
 
                     <!-- Navigation Dots - Always Visible -->
-                    <div class="flex items-center gap-2 pt-5 mt-5 border-t border-[#38B0F8]/20">
+                    <div class="flex items-center gap-2 pt-5 mt-5 border-t border-[#128C80]/20">
                         {faqs.map((_, dotIndex) => (
                             <button
-                                class={`faq-dot h-2 rounded-full transition-all duration-300 ${dotIndex === 0 ? 'bg-[#38B0F8] w-8' : 'bg-[#38B0F8]/30 hover:bg-[#38B0F8]/60 w-2'}`}
+                                class={`faq-dot h-2 rounded-full transition-all duration-300 ${dotIndex === 0 ? 'bg-[#128C80] w-8' : 'bg-[#128C80]/30 hover:bg-[#128C80]/60 w-2'}`}
                                 data-faq-dot={dotIndex}
                                 aria-label={`Go to question ${dotIndex + 1}`}
                             />
@@ -147,16 +147,16 @@ const {
 
                 <!-- CTA Section Below Answer Card -->
                 <div class="mt-6">
-                    <div class="glass-strong border-2 border-[#38B0F8]/20 rounded-2xl p-8 text-center min-h-[160px] flex flex-col justify-center bg-white shadow-sm">
-                        <h4 class="text-lg font-bold text-[#1E3A5F] mb-2">
+                    <div class="glass-strong border-2 border-[#128C80]/20 rounded-2xl p-8 text-center min-h-[160px] flex flex-col justify-center bg-[#292524] shadow-sm">
+                        <h4 class="text-lg font-bold text-white mb-2">
                             Still have questions?
                         </h4>
-                        <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+                        <p class="text-gray-300 mb-5 text-sm leading-relaxed">
                             Our team is here to help. Get in touch and we'll answer any questions you have.
                         </p>
                         <div class="flex justify-center">
                             <Button
-                                variant="secondary"
+                                variant="primary"
                                 size="md"
                                 href="/contact"
                                 ariaLabel="Contact us for more information"
@@ -174,7 +174,7 @@ const {
     </div>
     
     <!-- Bottom Separator Line -->
-    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"></div>
 </section>
 
 <script>
@@ -208,11 +208,11 @@ const {
             const dots = document.querySelectorAll('.faq-dot');
             dots.forEach((dot, dotIndex) => {
                 if (dotIndex === index) {
-                    dot.classList.add('bg-[#38B0F8]', 'w-8');
-                    dot.classList.remove('bg-[#38B0F8]/30', 'w-2');
+                    dot.classList.add('bg-[#128C80]', 'w-8');
+                    dot.classList.remove('bg-[#128C80]/30', 'w-2');
                 } else {
-                    dot.classList.remove('bg-[#38B0F8]', 'w-8');
-                    dot.classList.add('bg-[#38B0F8]/30', 'w-2');
+                    dot.classList.remove('bg-[#128C80]', 'w-8');
+                    dot.classList.add('bg-[#128C80]/30', 'w-2');
                 }
             });
 
@@ -224,15 +224,15 @@ const {
                 
                 if (btnIndex === index) {
                     // Active state
-                    btn.classList.add('border-[#38B0F8]', 'bg-[#38B0F8]/10');
-                    btn.classList.remove('border-[#38B0F8]/20');
+                    btn.classList.add('border-[#128C80]', 'bg-[#128C80]/10');
+                    btn.classList.remove('border-[#128C80]/20');
                     if (numberSpan) {
                         numberSpan.classList.remove('text-[#F5A623]');
-                        numberSpan.classList.add('text-[#38B0F8]');
+                        numberSpan.classList.add('text-[#128C80]');
                     }
                     if (textSpan) {
-                        textSpan.classList.add('text-[#1E3A5F]');
-                        textSpan.classList.remove('text-gray-600');
+                        textSpan.classList.add('text-white');
+                        textSpan.classList.remove('text-gray-300');
                     }
                     if (arrow) {
                         arrow.classList.add('opacity-100');
@@ -240,15 +240,15 @@ const {
                     }
                 } else {
                     // Inactive state
-                    btn.classList.remove('border-[#38B0F8]', 'bg-[#38B0F8]/10');
-                    btn.classList.add('border-[#38B0F8]/20');
+                    btn.classList.remove('border-[#128C80]', 'bg-[#128C80]/10');
+                    btn.classList.add('border-[#128C80]/20');
                     if (numberSpan) {
                         numberSpan.classList.add('text-[#F5A623]');
-                        numberSpan.classList.remove('text-[#38B0F8]');
+                        numberSpan.classList.remove('text-[#128C80]');
                     }
                     if (textSpan) {
-                        textSpan.classList.remove('text-[#1E3A5F]');
-                        textSpan.classList.add('text-gray-600');
+                        textSpan.classList.remove('text-white');
+                        textSpan.classList.add('text-gray-300');
                     }
                     if (arrow) {
                         arrow.classList.remove('opacity-100');
