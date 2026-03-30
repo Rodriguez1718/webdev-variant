@@ -1,0 +1,287 @@
+---
+interface ProcessStep {
+    number: string;
+    title: string;
+    description: string;
+    icon: string;
+}
+
+interface Props {
+    badge?: string;
+    title?: string;
+    description?: string;
+    steps?: ProcessStep[];
+}
+
+const {
+    badge = "OUR PROCESS",
+    title = "Four Steps to a Dominant Digital Presence",
+    description = "From browsing to launching, we guide you through every step of your digital transformation journey with expertise.",
+    steps = [
+        {
+            number: "01",
+            title: "Browse the Library",
+            description: "Explore our collection of high-performance templates specifically built for Plumbing and HVAC contractors.",
+            icon: "browse"
+        },
+        {
+            number: "02", 
+            title: "Choose Your Blueprint",
+            description: "Select the layout that fits your business model, whether you focus on emergency repairs or commercial installs.",
+            icon: "blueprint"
+        },
+        {
+            number: "03",
+            title: "Connect to the Team", 
+            description: "Work with our dedicated experts to integrate your branding, logos, and service areas into template.",
+            icon: "team"
+        },
+        {
+            number: "04",
+            title: "Launch & Scale",
+            description: "Go live with a lightning-fast site designed to capture quality leads and grow your digital presence immediately.",
+            icon: "launch"
+        }
+    ]
+} = Astro.props;
+
+// Icon mapping
+const icons: Record<string, string> = {
+    browse: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+    blueprint: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    team: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    launch: "M13 10V3L4 14h7v7l9-11h-7z"
+};
+---
+
+<section class="relative py-20 overflow-hidden bg-[#FAF8F5]">
+    <!-- Dynamic Background with Mesh Gradient -->
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-[#FAF8F5] via-[#F5F3F0] to-[#FAF8F5]"
+    >
+    </div>
+    <div
+        class="absolute inset-0 bg-gradient-to-tr from-[#128C80]/5 via-transparent to-[#F5A623]/5"
+    >
+    </div>
+
+    <!-- Decorative Section Divider - Top -->
+    <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"
+    >
+    </div>
+
+    <!-- Decorative gradients - Modern positioning -->
+    <div
+        class="absolute top-32 -left-20 w-80 h-80 opacity-10 pointer-events-none blur-3xl"
+        style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"
+    >
+    </div>
+    <div
+        class="absolute bottom-32 -right-20 w-80 h-80 opacity-10 pointer-events-none blur-3xl"
+        style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"
+    >
+    </div>
+    <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-5 pointer-events-none blur-3xl"
+        style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <!-- Badge -->
+            <div
+                class="inline-flex items-center gap-2 bg-[#128C80] px-4 py-2 rounded-full border border-[#128C80] mb-6"
+            >
+                <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                <span
+                    class="text-sm font-bold uppercase tracking-widest text-white"
+                    style="font-family: 'Poppins', sans-serif;"
+                >
+                    {badge}
+                </span>
+            </div>
+
+            <!-- Main Heading -->
+            <h2
+                class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6"
+                style="font-family: 'Poppins', sans-serif;"
+            >
+                {title}
+            </h2>
+
+            <!-- Description -->
+            <p
+                class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+                style="font-family: 'Poppins', sans-serif;"
+            >
+                {description}
+            </p>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="relative">
+            <!-- Connection Line - Modern curved design -->
+            <div class="absolute top-20 left-1/2 transform -translate-x-1/2 w-full max-w-4xl h-0.5 bg-gradient-to-r from-transparent via-[#128C80]/30 to-transparent rounded-full hidden lg:block"></div>
+            
+            <!-- Steps Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                {steps.map((step, index) => (
+                    <div class="relative flex flex-col items-center text-center group">
+                        <!-- Modern Step Card -->
+                        <div class="relative mb-8 transform group-hover:-translate-y-2 transition-all duration-500">
+                            <!-- Glassmorphism Background -->
+                            <div class="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-3xl border border-white/20 shadow-xl"></div>
+                            
+                            <!-- Main Icon Container - Modern gradient -->
+                            <div class="relative w-24 h-24 rounded-3xl bg-gradient-to-br from-[#128C80] to-[#0F6B5F] flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-all duration-500 z-10 mx-auto">
+                                <svg
+                                    class="w-12 h-12 text-white drop-shadow-lg"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d={icons[step.icon] || icons.browse}
+                                    ></path>
+                                </svg>
+                            </div>
+                            
+                            <!-- Modern Step Number Badge -->
+                            <div class="absolute -top-3 -right-3 w-10 h-10 rounded-2xl bg-gradient-to-br from-[#1E3A5F] to-[#0F1419] flex items-center justify-center z-20 shadow-lg border-2 border-white">
+                                <span class="text-sm font-bold text-white" style="font-family: 'Poppins', sans-serif;">
+                                    {step.number}
+                                </span>
+                            </div>
+
+                            <!-- Floating particles effect -->
+                            <div class="absolute -inset-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div class="absolute top-2 left-2 w-2 h-2 bg-[#128C80]/40 rounded-full animate-ping"></div>
+                                <div class="absolute bottom-2 right-2 w-1.5 h-1.5 bg-[#128C80]/60 rounded-full animate-pulse"></div>
+                                <div class="absolute top-1/2 left-0 w-1 h-1 bg-[#128C80]/50 rounded-full animate-bounce"></div>
+                            </div>
+                        </div>
+
+                        <!-- Modern Step Content -->
+                        <div class="space-y-4 px-4">
+                            <h3
+                                class="text-2xl font-bold text-[#1E3A5F] leading-tight group-hover:text-[#128C80] transition-colors duration-300"
+                                style="font-family: 'Poppins', sans-serif;"
+                            >
+                                {step.title}
+                            </h3>
+                            <p
+                                class="text-gray-600 leading-relaxed text-base max-w-xs mx-auto"
+                                style="font-family: 'Poppins', sans-serif;"
+                            >
+                                {step.description}
+                            </p>
+                        </div>
+
+                        <!-- Progress indicator -->
+                        <div class="mt-6 w-16 h-1 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-[#128C80] to-[#0F6B5F] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+
+    <!-- Decorative Section Divider - Bottom -->
+    <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"
+    >
+    </div>
+</section>
+
+<style>
+    section {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    section * {
+        font-family: 'Poppins', sans-serif !important;
+    }
+
+    /* Modern hover effects */
+    .group:hover .w-24 {
+        box-shadow: 0 25px 50px rgba(18, 140, 128, 0.4);
+    }
+
+    /* Glassmorphism effect */
+    .group:hover .absolute.inset-0 {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+    }
+
+    /* Smooth animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .group:hover .w-24 {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    /* Progress bar animation */
+    .group:hover .h-1 .h-full {
+        animation: progress 1s ease-out forwards;
+    }
+
+    @keyframes progress {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+
+    /* Particle animations */
+    @keyframes ping {
+        75%, 100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+    @keyframes pulse {
+        50% {
+            opacity: .5;
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(-25%);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
+        }
+        50% {
+            transform: none;
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        .absolute.top-20 {
+            display: none;
+        }
+    }
+
+    /* Enhanced mobile experience */
+    @media (max-width: 768px) {
+        .w-24 {
+            width: 5rem;
+            height: 5rem;
+        }
+        
+        .w-12 {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+</style>
