@@ -8,31 +8,31 @@ const stats = [
 ---
 
 <section
-  class="relative text-white py-20 overflow-hidden bg-[#161F30]"
+  class="relative text-[#1E3A5F] py-20 overflow-hidden bg-[#EEF2F7]"
   style="font-family: 'Poppins', sans-serif;"
 >
   <!-- Subtle Section Background with Glass Effect -->
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-transparent"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-[#94F9FD]/5 via-transparent to-[#2F8EF8]/5"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gray-100/10 to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-[#38B0F8]/5 via-transparent to-[#F5A623]/5"></div>
 
   <!-- Animated Background Orbs -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div
-      class="absolute top-1/4 -left-20 w-96 h-96 bg-[#2F8EF8]/10 rounded-full blur-3xl animate-float"
+      class="absolute top-1/4 -left-20 w-96 h-96 bg-[#38B0F8]/5 rounded-full blur-3xl animate-float"
     >
     </div>
     <div
-      class="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#94F9FD]/10 rounded-full blur-3xl animate-float-delayed"
+      class="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#F5A623]/5 rounded-full blur-3xl animate-float-delayed"
     >
     </div>
   </div>
 
   <!-- Decorative Section Divider - Top -->
   <div
-    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2F8EF8]/30 to-transparent"
+    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 to-transparent"
   >
   </div>
-  <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#2F8EF8]/60 to-transparent blur-sm"></div>
+  <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#1E3A5F]/30 to-transparent blur-sm"></div>
 
   <div class="max-w-7xl mx-auto px-8 relative z-10">
     <!-- Diagonal Split Layout -->
@@ -41,11 +41,11 @@ const stats = [
       <div class="lg:col-span-5 space-y-6">
         <!-- Header Badge -->
         <div
-          class="inline-flex items-center gap-2 bg-gradient-to-r from-[#94F9FD]/10 to-[#2F8EF8]/10 px-4 py-2 rounded-full border border-[#94F9FD]/20 mb-2"
+          class="inline-flex items-center gap-2 bg-[#1E3A5F] px-4 py-2 rounded-full border border-[#1E3A5F] mb-2"
         >
-          <div class="w-2 h-2 bg-[#94F9FD] rounded-full animate-pulse"></div>
+          <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
           <span
-            class="text-xs font-bold uppercase tracking-widest text-[#94F9FD]"
+            class="text-xs font-bold uppercase tracking-widest text-white"
             >By The Numbers</span
           >
         </div>
@@ -54,9 +54,9 @@ const stats = [
         <h2
           class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8"
         >
-          <span class="text-white">Proven Track</span><br />
-          <span class="text-white">Record of</span>
-          <span class="text-[#94F9FD]">Excellence.</span>
+          <span class="text-[#1E3A5F]">Proven Track</span><br />
+          <span class="text-[#1E3A5F]">Record of</span>
+          <span class="text-[#38B0F8]">Excellence.</span>
         </h2>
 
         <!-- Diagonal Stat Cards -->
@@ -64,7 +64,7 @@ const stats = [
           {
             stats.slice(0, 2).map((stat, index) => (
               <div
-                class="stat-card-diagonal group bg-[#1B222C] border-2 border-[#2F8EF8]/30 rounded-3xl p-6 hover:border-[#94F9FD] transition-all duration-500 transform hover:-translate-y-2"
+                class="stat-card-diagonal group bg-white border-2 border-[#1E3A5F]/20 rounded-3xl p-6 hover:border-[#38B0F8] transition-all duration-500 transform hover:-translate-y-2 shadow-sm"
                 style={`transform: translateX(${index * 20}px);`}
               >
                 <div class="flex items-center justify-between">
@@ -72,14 +72,14 @@ const stats = [
                     <div class="stat-number text-3xl md:text-4xl font-bold mb-1">
                       {stat.number}
                     </div>
-                    <p class="text-gray-400 text-xs uppercase tracking-wider">
+                    <p class="text-gray-600 text-xs uppercase tracking-wider">
                       {stat.label}
                     </p>
                   </div>
-                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2F8EF8]/20 to-[#94F9FD]/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500 shrink-0">
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#38B0F8]/20 to-[#F5A623]/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500 shrink-0">
                     {stat.icon === "briefcase" && (
                       <svg
-                        class="w-7 h-7 text-[#94F9FD]"
+                        class="w-7 h-7 text-[#38B0F8]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -94,7 +94,7 @@ const stats = [
                     )}
                     {stat.icon === "heart" && (
                       <svg
-                        class="w-7 h-7 text-[#94F9FD]"
+                        class="w-7 h-7 text-[#38B0F8]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -139,14 +139,14 @@ const stats = [
           {
             stats.slice(2, 4).map((stat, index) => (
               <div
-                class="stat-card-diagonal group bg-[#1B222C] border-2 border-[#2F8EF8]/30 rounded-3xl p-6 hover:border-[#94F9FD] transition-all duration-500 transform hover:-translate-y-2"
+                class="stat-card-diagonal group bg-white border-2 border-[#1E3A5F]/20 rounded-3xl p-6 hover:border-[#38B0F8] transition-all duration-500 transform hover:-translate-y-2 shadow-sm"
                 style={`transform: translateX(-${index * 20}px);`}
               >
                 <div class="flex items-center justify-between">
-                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2F8EF8]/20 to-[#94F9FD]/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500 shrink-0">
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#38B0F8]/20 to-[#F5A623]/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500 shrink-0">
                     {stat.icon === "clock" && (
                       <svg
-                        class="w-7 h-7 text-[#94F9FD]"
+                        class="w-7 h-7 text-[#38B0F8]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -161,7 +161,7 @@ const stats = [
                     )}
                     {stat.icon === "users" && (
                       <svg
-                        class="w-7 h-7 text-[#94F9FD]"
+                        class="w-7 h-7 text-[#38B0F8]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -179,7 +179,7 @@ const stats = [
                     <div class="stat-number text-3xl md:text-4xl font-bold mb-1">
                       {stat.number}
                     </div>
-                    <p class="text-gray-400 text-xs uppercase tracking-wider">
+                    <p class="text-gray-600 text-xs uppercase tracking-wider">
                       {stat.label}
                     </p>
                   </div>
@@ -191,14 +191,14 @@ const stats = [
 
         <!-- CTA Card -->
         <div
-          class="mt-6 bg-gradient-to-br from-[#2F8EF8]/10 to-[#94F9FD]/10 border-2 border-[#94F9FD]/30 rounded-3xl p-6 backdrop-blur-sm"
+          class="mt-6 bg-gradient-to-br from-[#38B0F8]/10 to-[#F5A623]/10 border-2 border-[#38B0F8]/30 rounded-3xl p-6 backdrop-blur-sm"
         >
-          <p class="text-white text-base mb-4 leading-relaxed">
+          <p class="text-[#1E3A5F] text-base mb-4 leading-relaxed">
             Ready to see what we can achieve together?
           </p>
           <a
             href="/contact"
-            class="inline-flex items-center gap-3 bg-gradient-to-r from-[#2F8EF8] to-[#94F9FD] hover:from-[#94F9FD] hover:to-[#2F8EF8] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+            class="inline-flex items-center gap-3 bg-gradient-to-r from-[#38B0F8] to-[#F5A623] hover:from-[#F5A623] hover:to-[#38B0F8] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl group"
           >
             <span>Start Your Project</span>
             <svg
@@ -221,11 +221,11 @@ const stats = [
     <!-- Bottom Floating Stats Bar -->
     <div class="mt-16">
       <div
-        class="bg-[#1B222C] border-2 border-[#2F8EF8]/30 rounded-full p-5 flex flex-wrap justify-around items-center gap-6 hover:border-[#94F9FD] transition-all duration-500"
+        class="bg-white border-2 border-[#1E3A5F]/20 rounded-full p-5 flex flex-wrap justify-around items-center gap-6 hover:border-[#38B0F8] transition-all duration-500 shadow-sm"
       >
         <div class="flex items-center gap-3">
           <div
-            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#2F8EF8] to-[#94F9FD] flex items-center justify-center shrink-0"
+            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#38B0F8] to-[#F5A623] flex items-center justify-center shrink-0"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -241,16 +241,16 @@ const stats = [
             </svg>
           </div>
           <div>
-            <p class="text-[#94F9FD] font-bold text-base">Fast Delivery</p>
-            <p class="text-gray-400 text-xs">On-Time Completion</p>
+            <p class="text-[#38B0F8] font-bold text-base">Fast Delivery</p>
+            <p class="text-gray-600 text-xs">On-Time Completion</p>
           </div>
         </div>
 
-        <div class="hidden md:block w-px h-10 bg-[#2F8EF8]/30"></div>
+        <div class="hidden md:block w-px h-10 bg-[#1E3A5F]/20"></div>
 
         <div class="flex items-center gap-3">
           <div
-            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#94F9FD] to-[#2F8EF8] flex items-center justify-center shrink-0"
+            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#F5A623] to-[#38B0F8] flex items-center justify-center shrink-0"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -267,16 +267,16 @@ const stats = [
             </svg>
           </div>
           <div>
-            <p class="text-[#94F9FD] font-bold text-base">Quality Assured</p>
-            <p class="text-gray-400 text-xs">Premium Standards</p>
+            <p class="text-[#38B0F8] font-bold text-base">Quality Assured</p>
+            <p class="text-gray-600 text-xs">Premium Standards</p>
           </div>
         </div>
 
-        <div class="hidden md:block w-px h-10 bg-[#2F8EF8]/30"></div>
+        <div class="hidden md:block w-px h-10 bg-[#1E3A5F]/20"></div>
 
         <div class="flex items-center gap-3">
           <div
-            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#2F8EF8] to-[#94F9FD] flex items-center justify-center shrink-0"
+            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#38B0F8] to-[#F5A623] flex items-center justify-center shrink-0"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -293,8 +293,8 @@ const stats = [
             </svg>
           </div>
           <div>
-            <p class="text-[#94F9FD] font-bold text-base">24/7 Support</p>
-            <p class="text-gray-400 text-xs">Always Available</p>
+            <p class="text-[#38B0F8] font-bold text-base">24/7 Support</p>
+            <p class="text-gray-600 text-xs">Always Available</p>
           </div>
         </div>
       </div>
@@ -303,10 +303,10 @@ const stats = [
 
   <!-- Decorative Section Divider - Bottom -->
   <div
-    class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#94F9FD]/30 to-transparent"
+    class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 to-transparent"
   >
   </div>
-  <div class="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#94F9FD]/60 to-transparent blur-sm"></div>
+  <div class="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#1E3A5F]/30 to-transparent blur-sm"></div>
 </section>
 
 <style>
@@ -320,7 +320,7 @@ const stats = [
   }
 
   .stat-number {
-    background: linear-gradient(135deg, #94f9fd 0%, #2f8ef8 100%);
+    background: linear-gradient(135deg, #38B0F8 0%, #1E3A5F 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
