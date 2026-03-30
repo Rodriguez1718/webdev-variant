@@ -35,12 +35,12 @@ const { name, tagline, hoverDescription, image } = trade.data;
     <!-- Hero Section -->
     <Hero2 
         title={name}
-        subtitle={tagline}
-        description={hoverDescription || tagline}
         image={image}
-        showCTA={true}
-        ctaText="Get a Quote"
-        ctaHref="/contact"
+        breadcrumbItems={[
+            { label: "HOME", href: "/" },
+            { label: "TRADES WE SERVE", href: "/trades-we-serve" },
+            { label: name.toUpperCase() }
+        ]}
     />
         <!-- Templates Section -->
         <section class="templates-section relative py-20 overflow-hidden">

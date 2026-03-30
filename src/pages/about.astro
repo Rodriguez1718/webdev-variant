@@ -9,8 +9,7 @@ import Hero2 from "../components/layout/Hero2.astro";
 >
     <Hero2
         title="About Us"
-        subtitle="Our Story"
-        description="Building digital solutions for contractors who build the world. We combine cutting-edge technology with industry expertise to help trade professionals dominate their markets."
+        breadcrumbItems={[{ label: "HOME", href: "/" }, { label: "ABOUT US" }]}
     />
 
     <section class="min-h-screen py-16 px-4">

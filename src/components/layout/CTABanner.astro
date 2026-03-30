@@ -24,7 +24,17 @@ const {
 } = Astro.props;
 ---
 
-<section class="cta-banner relative py-20 overflow-hidden bg-[#161F30]">
+<section class="cta-banner relative py-20 overflow-hidden bg-[#1B2838]">
+    <!-- Dynamic Background with Mesh Gradient -->
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-[#1B2838] via-[#1F2937] to-[#1B2838]"
+    >
+    </div>
+    <div
+        class="absolute inset-0 bg-gradient-to-tr from-[#2F8EF8]/10 via-transparent to-[#94F9FD]/10"
+    >
+    </div>
+
     <!-- Animated Background Pattern -->
     <div class="absolute inset-0 opacity-5">
         <div

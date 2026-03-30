@@ -12,11 +12,7 @@ import CTA from "../components/layout/CTA.astro";
 >
     <Hero2
         title="Our Work"
-        subtitle="Portfolio"
-        description="Real projects. Real results. Explore our portfolio of successful websites and marketing campaigns that have helped contractors dominate their local markets."
-        showCTA={true}
-        ctaText="Start Your Project"
-        ctaHref="/contact"
+        breadcrumbItems={[{ label: "HOME", href: "/" }, { label: "OUR WORK" }]}
     />
 
     <TemplatesByTrade />

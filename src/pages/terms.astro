@@ -9,8 +9,10 @@ import Hero2 from "../components/layout/Hero2.astro";
 >
     <Hero2
         title="Terms of Service"
-        subtitle="Legal"
-        description="Please read these terms carefully before using our services."
+        breadcrumbItems={[
+            { label: "HOME", href: "/" },
+            { label: "TERMS OF SERVICE" },
+        ]}
     />
 
     <section class="min-h-screen py-16 px-4">

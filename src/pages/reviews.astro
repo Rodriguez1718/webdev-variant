@@ -11,8 +11,7 @@ import Statistic from "../components/layout/Statistics.astro";
 >
     <Hero2
         title="Customer Reviews"
-        subtitle="Testimonials"
-        description="See what contractors are saying about our services. Real feedback from real professionals who've transformed their businesses with our solutions."
+        breadcrumbItems={[{ label: "HOME", href: "/" }, { label: "REVIEWS" }]}
     />
     <Review />
     <Statistic />

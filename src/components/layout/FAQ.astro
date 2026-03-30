@@ -44,7 +44,11 @@ const {
 } = Astro.props;
 ---
 
-<section class="faq-section relative py-20 overflow-hidden bg-[#161F30]">
+<section class="faq-section relative py-20 overflow-hidden bg-[#1B2838]">
+    <!-- Dynamic Background with Mesh Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1B2838] via-[#1F2937] to-[#1B2838]"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-[#2F8EF8]/10 via-transparent to-[#94F9FD]/10"></div>
+
     <!-- Top Separator Line -->
     <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2F8EF8]/30 to-transparent"></div>
     
@@ -57,9 +61,9 @@ const {
             <!-- Left Column - Questions List -->
             <div class="faq-questions">
                 <!-- Section Badge -->
-                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#2F8EF8]/10 to-[#94F9FD]/10 px-4 py-2 rounded-full border border-[#2F8EF8]/20 mb-6">
-                    <div class="w-2 h-2 bg-[#2F8EF8] rounded-full animate-pulse"></div>
-                    <span class="text-eyebrow text-[#2F8EF8]">
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#A78BFA]/10 to-[#94F9FD]/10 px-4 py-2 rounded-full border border-[#A78BFA]/30 mb-6">
+                    <div class="w-2 h-2 bg-[#A78BFA] rounded-full animate-pulse"></div>
+                    <span class="text-eyebrow text-[#A78BFA]">
                         {subtitle}
                     </span>
                 </div>

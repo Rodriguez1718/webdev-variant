@@ -5,7 +5,6 @@ import CoreOffering from "../components/layout/CoreOffering.astro";
 import WhyChooseUs from "../components/layout/WhyChooseUs.astro";
 import FAQ from "../components/layout/FAQ.astro";
 import CTA from "../components/layout/CTA.astro";
-
 ---
 
 <BaseLayout
@@ -14,11 +13,10 @@ import CTA from "../components/layout/CTA.astro";
 >
     <Hero2
         title="What We Do"
-        subtitle="Our Services"
-        description="We create high-performance websites, marketing systems, and digital tools that help contractors generate more leads, close more deals, and grow their businesses."
-        showCTA={true}
-        ctaText="Learn More"
-        ctaHref="/contact"
+        breadcrumbItems={[
+            { label: "HOME", href: "/" },
+            { label: "WHAT WE DO" },
+        ]}
     />
     <CoreOffering />
     <WhyChooseUs />

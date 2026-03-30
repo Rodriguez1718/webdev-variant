@@ -12,11 +12,10 @@ import CTA from "../components/layout/CTA.astro";
 >
     <Hero2
         title="Trades We Serve"
-        subtitle="Our Services"
-        description="Specialized digital solutions tailored for your industry. From HVAC to plumbing, we understand your business and deliver results that matter."
-        showCTA={true}
-        ctaText="Get Started"
-        ctaHref="/contact"
+        breadcrumbItems={[
+            { label: "HOME", href: "/" },
+            { label: "TRADES WE SERVE" },
+        ]}
     />
 
     <Trades />
