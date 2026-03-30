@@ -22,28 +22,28 @@ const iconPath = icons[icon] || icons.clock;
 // Variant styles
 const variantStyles = {
     light: {
-        card: "bg-white border-2 border-gray-200 hover:border-[#128C80] shadow-sm",
-        iconBg: "bg-gradient-to-br from-[#128C80]/20 to-[#128C80]/40",
-        iconColor: "text-[#128C80]",
+        card: "bg-white border-2 border-gray-200 hover:border-[#00C2FF] shadow-sm",
+        iconBg: "bg-gradient-to-br from-[#00C2FF]/20 to-[#00C2FF]/40",
+        iconColor: "text-[#00C2FF]",
         textColor: "text-gray-600",
-        shadowColor: "rgba(18, 140, 128, 0.1)",
-        hoverShadowColor: "rgba(18, 140, 128, 0.2)"
+        shadowColor: "rgba(0, 194, 255, 0.1)",
+        hoverShadowColor: "rgba(0, 194, 255, 0.2)"
     },
     dark: {
-        card: "bg-[#292524] border-2 border-[#292524] hover:border-[#128C80] shadow-sm",
-        iconBg: "bg-gradient-to-br from-[#128C80]/20 to-[#128C80]/40",
-        iconColor: "text-[#128C80]",
+        card: "bg-[#0D2B4E] border-2 border-[#0D2B4E] hover:border-[#00C2FF] shadow-sm",
+        iconBg: "bg-gradient-to-br from-[#00C2FF]/20 to-[#00C2FF]/40",
+        iconColor: "text-[#00C2FF]",
         textColor: "text-gray-300",
         shadowColor: "rgba(41, 37, 36, 0.3)",
-        hoverShadowColor: "rgba(18, 140, 128, 0.2)"
+        hoverShadowColor: "rgba(0, 194, 255, 0.2)"
     },
     teal: {
-        card: "bg-[#128C80] border-2 border-[#128C80] hover:border-[#0F6B5F] shadow-sm",
+        card: "bg-[#00C2FF] border-2 border-[#00C2FF] hover:border-[#FFD100] shadow-sm",
         iconBg: "bg-white/20",
         iconColor: "text-white",
         textColor: "text-white/90",
-        shadowColor: "rgba(18, 140, 128, 0.3)",
-        hoverShadowColor: "rgba(18, 140, 128, 0.4)"
+        shadowColor: "rgba(0, 194, 255, 0.3)",
+        hoverShadowColor: "rgba(0, 194, 255, 0.4)"
     }
 };
 
@@ -90,12 +90,12 @@ const currentVariant = variantStyles[variant];
     }
 
     .stat-card[data-variant="light"] {
-        box-shadow: 0 4px 20px rgba(18, 140, 128, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 194, 255, 0.1);
     }
 
     .stat-card[data-variant="light"]:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(18, 140, 128, 0.2);
+        box-shadow: 0 8px 30px rgba(0, 194, 255, 0.2);
     }
 
     .stat-card[data-variant="dark"] {
@@ -104,20 +104,20 @@ const currentVariant = variantStyles[variant];
 
     .stat-card[data-variant="dark"]:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(18, 140, 128, 0.2);
+        box-shadow: 0 8px 30px rgba(0, 194, 255, 0.2);
     }
 
     .stat-card[data-variant="teal"] {
-        box-shadow: 0 4px 20px rgba(18, 140, 128, 0.3);
+        box-shadow: 0 4px 20px rgba(0, 194, 255, 0.3);
     }
 
     .stat-card[data-variant="teal"]:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(18, 140, 128, 0.4);
+        box-shadow: 0 8px 30px rgba(0, 194, 255, 0.4);
     }
 
     .stat-number {
-        background: linear-gradient(135deg, #128C80 0%, #1E3A5F 100%);
+        background: linear-gradient(135deg, #00C2FF 0%, #0D2B4E 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

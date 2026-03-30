@@ -30,21 +30,21 @@ const {
 <section class="cta-section relative py-20 overflow-hidden bg-[#FAF8F5]">
     <!-- Dynamic Background with Mesh Gradient -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#FAF8F5] via-[#F5F3F0] to-[#FAF8F5]"></div>
-    <div class="absolute inset-0 bg-gradient-to-tr from-[#128C80]/5 via-transparent to-[#F5A623]/5"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-[#00C2FF]/5 via-transparent to-[#F5A623]/5"></div>
 
     <!-- Top Separator Line -->
-    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/30 to-transparent"></div>
+    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/30 to-transparent"></div>
     
     <!-- Decorative gradients -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 opacity-20 pointer-events-none" style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 opacity-20 pointer-events-none" style="background: radial-gradient(circle, #128C80 0%, transparent 70%);"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 opacity-20 pointer-events-none" style="background: radial-gradient(circle, #00C2FF 0%, transparent 70%);"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 opacity-20 pointer-events-none" style="background: radial-gradient(circle, #00C2FF 0%, transparent 70%);"></div>
 
     <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <!-- Left Column - Content -->
             <div class="cta-content">
                 <!-- Badge -->
-                <div class="inline-flex items-center gap-2 bg-[#128C80] px-4 py-2 rounded-full border border-[#128C80] mb-6">
+                <div class="inline-flex items-center gap-2 bg-[#00C2FF] px-4 py-2 rounded-full border border-[#00C2FF] mb-6">
                     <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                     <span class="text-eyebrow text-white">
                         {badge}
@@ -52,8 +52,8 @@ const {
                 </div>
 
                 <!-- Title -->
-                <h2 class="h2 text-[#1E3A5F] mb-6">
-                    Ready to <span class="text-[#128C80]">Dominate</span><br />Your Market?
+                <h2 class="h2 text-[#0D2B4E] mb-6">
+                    Ready to <span class="text-[#00C2FF]">Dominate</span><br />Your Market?
                 </h2>
 
                 <!-- Description -->
@@ -65,12 +65,12 @@ const {
                 <ul class="space-y-4">
                     {features.map((feature) => (
                         <li class="flex items-center gap-3">
-                            <div class="w-6 h-6 rounded-full bg-[#128C80] flex items-center justify-center shrink-0">
+                            <div class="w-6 h-6 rounded-full bg-[#00C2FF] flex items-center justify-center shrink-0">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                             </div>
-                            <span class="text-nav text-[#1E3A5F]">
+                            <span class="text-nav text-[#0D2B4E]">
                                 {feature}
                             </span>
                         </li>
@@ -82,8 +82,8 @@ const {
             <div class="cta-form">
                 {showForm ? (
                     <!-- Form Card -->
-                    <div class="glass-strong border-2 border-[#128C80]/30 rounded-3xl p-8 lg:p-10 bg-[#F9FAFB] shadow-lg">
-                        <h3 class="h3 text-[#1E3A5F] mb-3">
+                    <div class="glass-strong border-2 border-[#00C2FF]/30 rounded-3xl p-8 lg:p-10 bg-[#F9FAFB] shadow-lg">
+                        <h3 class="h3 text-[#0D2B4E] mb-3">
                             {formTitle}
                         </h3>
                         <p class="text-gray-600 mb-6 text-base">
@@ -93,47 +93,47 @@ const {
                         <form class="space-y-4" id="cta-form">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="form-group">
-                                    <label for="name" class="block text-sm font-semibold mb-2 text-[#1E3A5F]">
-                                        Full Name <span class="text-[#128C80]">*</span>
+                                    <label for="name" class="block text-sm font-semibold mb-2 text-[#0D2B4E]">
+                                        Full Name <span class="text-[#00C2FF]">*</span>
                                     </label>
                                     <input
                                         type="text"
                                         id="name"
                                         name="name"
                                         placeholder="John Smith"
-                                        class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#128C80]/20 outline-none transition-all"
+                                        class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#00C2FF]/20 outline-none transition-all"
                                         required
                                     />
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone" class="block text-sm font-semibold mb-2 text-[#1E3A5F]">
-                                        Phone Number <span class="text-[#128C80]">*</span>
+                                    <label for="phone" class="block text-sm font-semibold mb-2 text-[#0D2B4E]">
+                                        Phone Number <span class="text-[#00C2FF]">*</span>
                                     </label>
                                     <input
                                         type="tel"
                                         id="phone"
                                         name="phone"
                                         placeholder="(555) 123-4567"
-                                        class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#128C80]/20 outline-none transition-all"
+                                        class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#00C2FF]/20 outline-none transition-all"
                                         required
                                     />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="email" class="block text-sm font-semibold mb-2 text-[#1E3A5F]">
-                                    Email Address <span class="text-[#128C80]">*</span>
+                                <label for="email" class="block text-sm font-semibold mb-2 text-[#0D2B4E]">
+                                    Email Address <span class="text-[#00C2FF]">*</span>
                                 </label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
                                     placeholder="john@company.com"
-                                    class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#128C80]/20 outline-none transition-all"
+                                    class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#00C2FF]/20 outline-none transition-all"
                                     required
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="message" class="block text-sm font-semibold mb-2 text-[#1E3A5F]">
+                                <label for="message" class="block text-sm font-semibold mb-2 text-[#0D2B4E]">
                                     Message
                                 </label>
                                 <textarea
@@ -141,7 +141,7 @@ const {
                                     name="message"
                                     placeholder="Tell us about your business..."
                                     rows="4"
-                                    class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#128C80]/20 outline-none transition-all resize-vertical"
+                                    class="w-full px-4 py-3 rounded-lg border-0 bg-[#E5E7EB] text-[#6B7280] placeholder-[#6B7280] focus:bg-white focus:ring-2 focus:ring-[#00C2FF]/20 outline-none transition-all resize-vertical"
                                 ></textarea>
                             </div>
                             <Button
@@ -159,8 +159,8 @@ const {
                     </div>
                 ) : (
                     <!-- Simple CTA Card -->
-                    <div class="glass-strong border-2 border-[#128C80]/30 rounded-3xl p-8 lg:p-10 text-center bg-white shadow-lg">
-                        <h3 class="h3 text-[#1E3A5F] mb-4">
+                    <div class="glass-strong border-2 border-[#00C2FF]/30 rounded-3xl p-8 lg:p-10 text-center bg-white shadow-lg">
+                        <h3 class="h3 text-[#0D2B4E] mb-4">
                             {formTitle}
                         </h3>
                         <p class="text-gray-600 mb-8 text-lg leading-relaxed">
@@ -184,7 +184,7 @@ const {
     </div>
     
     <!-- Bottom Separator Line -->
-    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/30 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/30 to-transparent"></div>
 </section>
 
 <script>

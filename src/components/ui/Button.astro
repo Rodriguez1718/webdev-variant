@@ -1,6 +1,6 @@
 ---
 interface Props {
-    variant?: "primary" | "secondary" | "outline";
+    variant?: "primary" | "secondary" | "outline" | "urgency" | "card";
     size?: "sm" | "md" | "lg";
     href?: string;
     fullWidth?: boolean;
@@ -24,11 +24,14 @@ const baseClasses =
 
 const variantClasses = {
     primary:
-        "bg-[#128C80] hover:bg-[#0F7A70] text-white shadow-[0_4px_20px_rgba(18,140,128,0.4)] hover:shadow-[0_6px_30px_rgba(18,140,128,0.6)]",
+        "bg-[#00C2FF] hover:bg-[#FFD100] text-[#0A0F1E] shadow-[0_4px_20px_rgba(0,194,255,0.4)] hover:shadow-[0_6px_30px_rgba(255,209,0,0.6)]",
     secondary:
-        "border-2 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_6px_30px_rgba(255,255,255,0.2)]",
+        "border-2 border-[#00C2FF]/30 text-[#00C2FF] hover:bg-[#FFD100] hover:text-[#0A0F1E] hover:border-[#FFD100] backdrop-blur-sm shadow-[0_4px_20px_rgba(0,194,255,0.1)] hover:shadow-[0_6px_30px_rgba(255,209,0,0.2)]",
     outline:
-        "border-2 border-[#128C80] text-[#128C80] hover:bg-[#128C80] hover:text-white shadow-[0_4px_20px_rgba(18,140,128,0.3)] hover:shadow-[0_6px_30px_rgba(18,140,128,0.6)]",
+        "border-2 border-[#00C2FF] text-[#00C2FF] hover:bg-[#00C2FF] hover:text-[#0A0F1E] shadow-[0_4px_20px_rgba(0,194,255,0.3)] hover:shadow-[0_6px_30px_rgba(0,194,255,0.6)]",
+    urgency:
+        "bg-[#FFD100] hover:bg-[#00C2FF] text-[#0A0F1E] font-bold shadow-[0_4px_20px_rgba(255,209,0,0.4)] hover:shadow-[0_6px_30px_rgba(0,194,255,0.6)]",
+    card: "border-2 border-[#00C2FF]/30 text-[#00C2FF] hover:bg-[#FFD100] hover:text-[#0A0F1E] hover:border-[#FFD100] backdrop-blur-sm shadow-[0_4px_20px_rgba(0,194,255,0.1)] hover:shadow-[0_6px_30px_rgba(255,209,0,0.2)]",
 };
 
 const sizeClasses = {

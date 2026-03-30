@@ -38,14 +38,14 @@ const testimonials = [
 ];
 ---
 
-<section class="relative text-[#1E3A5F] py-20 px-6 md:px-20 font-sans bg-[#FAF8F5]" style="font-family: 'Poppins', sans-serif;">
+<section class="relative text-[#0D2B4E] py-20 px-6 md:px-20 font-sans bg-[#FAF8F5]" style="font-family: 'Poppins', sans-serif;">
   <!-- Subtle Section Background with Glass Effect -->
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#F5F3F0]/10 to-transparent"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-[#128C80]/5 via-transparent to-[#F5A623]/5"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-[#00C2FF]/5 via-transparent to-[#F5A623]/5"></div>
   
   <!-- Decorative Section Divider - Top -->
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"></div>
-  <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#128C80]/30 to-transparent blur-sm"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/20 to-transparent"></div>
+  <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#00C2FF]/30 to-transparent blur-sm"></div>
   
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
     
@@ -60,8 +60,8 @@ const testimonials = [
       </div>
       
       <!-- Stats Badge - Bottom Right -->
-      <div class="absolute -bottom-6 -right-6 bg-white p-8 rounded-[30px] border border-[#128C80]/30 shadow-2xl backdrop-blur-sm">
-        <h2 class="text-[#128C80] text-5xl font-bold" style="font-family: 'Poppins', sans-serif;">99%</h2>
+      <div class="absolute -bottom-6 -right-6 bg-white p-8 rounded-[30px] border border-[#00C2FF]/30 shadow-2xl backdrop-blur-sm">
+        <h2 class="text-[#00C2FF] text-5xl font-bold" style="font-family: 'Poppins', sans-serif;">99%</h2>
         <p class="text-gray-600 text-sm mt-1 uppercase tracking-wider" style="font-family: 'Poppins', sans-serif;">Client Satisfaction</p>
       </div>
     </div>
@@ -71,10 +71,10 @@ const testimonials = [
       
       <!-- Header -->
       <div>
-        <div class="flex items-center gap-2 text-[#128C80] mb-4">
+        <div class="flex items-center gap-2 text-[#00C2FF] mb-4">
           <span class="text-xs font-bold uppercase tracking-[0.2em]" style="font-family: 'Poppins', sans-serif;">Client Testimonial</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-bold leading-tight text-[#1E3A5F]" style="font-family: 'Poppins', sans-serif;">
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight text-[#0D2B4E]" style="font-family: 'Poppins', sans-serif;">
           Client Experiences <br /> That Build Trust.
         </h2>
       </div>
@@ -84,10 +84,10 @@ const testimonials = [
         <div class="carousel-track transition-transform duration-500 ease-out" id="carouselTrack">
           {testimonials.map((testimonial) => (
             <div class="carousel-slide">
-              <div class="bg-[#292524] backdrop-blur-sm p-10 rounded-[40px] border border-[#128C80]/20 relative overflow-hidden shadow-xl">
+              <div class="bg-[#0D2B4E] backdrop-blur-sm p-10 rounded-[40px] border border-[#00C2FF]/20 relative overflow-hidden shadow-xl">
                 
                 <!-- Quote Icon -->
-                <div class="absolute top-6 right-10 text-[#128C80] opacity-60">
+                <div class="absolute top-6 right-10 text-[#00C2FF] opacity-60">
                   <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.34315 11.3601 6 13.017 6H19.017C20.6739 6 22.017 7.34315 22.017 9V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM3 21L3 18C3 16.8954 3.89543 16 5 16H8C8.55228 16 9 15.5523 9 15V9C9 8.44772 8.55228 8 8 8H4C3.44772 8 3 8.44772 3 9V12C3 12.5523 2.55228 13 2 13H0V12V9C0 7.34315 1.34315 6 3 6H9C10.6569 6 12 7.34315 12 9V15C12 18.3137 9.31371 21 6 21H3Z" />
                   </svg>
@@ -98,11 +98,11 @@ const testimonials = [
                   
                   <!-- Customer Info -->
                   <div class="flex items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#128C80] to-[#F5A623] flex items-center justify-center text-white font-bold text-xl shrink-0">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#00C2FF] to-[#F5A623] flex items-center justify-center text-white font-bold text-xl shrink-0">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
-                      <h4 class="text-xl font-bold text-[#128C80]" style="font-family: 'Poppins', sans-serif;">{testimonial.name}</h4>
+                      <h4 class="text-xl font-bold text-[#00C2FF]" style="font-family: 'Poppins', sans-serif;">{testimonial.name}</h4>
                       <p class="text-gray-300 text-sm" style="font-family: 'Poppins', sans-serif;">{testimonial.role}</p>
                     </div>
                   </div>
@@ -110,7 +110,7 @@ const testimonials = [
                   <!-- Star Rating -->
                   <div class="flex gap-1">
                     {Array.from({ length: testimonial.rating }).map(() => (
-                      <span class="text-[#128C80] text-lg">★</span>
+                      <span class="text-[#00C2FF] text-lg">★</span>
                     ))}
                   </div>
 
@@ -129,7 +129,7 @@ const testimonials = [
       <div class="flex justify-start gap-2">
         {testimonials.map((_, index) => (
           <button 
-            class="carousel-indicator w-3 h-3 rounded-full bg-gray-400 transition-all duration-300 hover:bg-[#128C80]" 
+            class="carousel-indicator w-3 h-3 rounded-full bg-gray-400 transition-all duration-300 hover:bg-[#00C2FF]" 
             data-index={index}
             aria-label={`Go to testimonial ${index + 1}`}
           />
@@ -139,8 +139,8 @@ const testimonials = [
   </div>
   
   <!-- Decorative Section Divider - Bottom -->
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#128C80]/20 to-transparent"></div>
-  <div class="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#128C80]/30 to-transparent blur-sm"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/20 to-transparent"></div>
+  <div class="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#00C2FF]/30 to-transparent blur-sm"></div>
 </section>
 
 <script>
@@ -158,10 +158,10 @@ const testimonials = [
       // Update indicators
       indicators.forEach((indicator, index) => {
         if (index === currentIndex) {
-          indicator.classList.add('bg-[#128C80]');
+          indicator.classList.add('bg-[#00C2FF]');
           indicator.classList.remove('bg-gray-400');
         } else {
-          indicator.classList.remove('bg-[#128C80]');
+          indicator.classList.remove('bg-[#00C2FF]');
           indicator.classList.add('bg-gray-400');
         }
       });

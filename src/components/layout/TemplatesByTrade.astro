@@ -33,23 +33,23 @@ const templatesByTrade = sortedTrades.map(trade => {
             
             {/* Decorative gradients - alternate sides */}
             {index % 2 === 0 ? (
-                <div class="absolute top-20 left-0 w-96 h-96 opacity-10 pointer-events-none" style="background: radial-gradient(circle, #94F9FD 0%, transparent 70%);"></div>
+                <div class="absolute top-20 left-0 w-96 h-96 opacity-10 pointer-events-none" style="background: radial-gradient(circle, #00C2FF 0%, transparent 70%);"></div>
             ) : (
-                <div class="absolute top-20 right-0 w-96 h-96 opacity-10 pointer-events-none" style="background: radial-gradient(circle, #2F8EF8 0%, transparent 70%);"></div>
+                <div class="absolute top-20 right-0 w-96 h-96 opacity-10 pointer-events-none" style="background: radial-gradient(circle, #00C2FF 0%, transparent 70%);"></div>
             )}
 
             {/* Decorative Section Divider - Top */}
             {index === 0 && (
-                <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2F8EF8]/20 to-transparent"></div>
+                <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/20 to-transparent"></div>
             )}
 
             <div class="max-w-7xl mx-auto px-8 relative z-10">
                 {/* Section Header */}
                 <div class="mb-12">
                     {/* Badge */}
-                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#2F8EF8]/10 to-[#94F9FD]/10 px-4 py-2 rounded-full border border-[#2F8EF8]/20 mb-6">
-                        <div class="w-2 h-2 bg-[#2F8EF8] rounded-full animate-pulse"></div>
-                        <span class="text-sm font-bold uppercase tracking-widest text-[#2F8EF8]" style="font-family: 'Poppins', sans-serif;">
+                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#00C2FF]/10 to-[#00C2FF]/10 px-4 py-2 rounded-full border border-[#00C2FF]/20 mb-6">
+                        <div class="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse"></div>
+                        <span class="text-sm font-bold uppercase tracking-widest text-[#00C2FF]" style="font-family: 'Poppins', sans-serif;">
                             {item.trade.name}
                         </span>
                     </div>
@@ -58,7 +58,7 @@ const templatesByTrade = sortedTrades.map(trade => {
                     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                         <div>
                             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3" style="font-family: 'Poppins', sans-serif;">
-                                {item.trade.name} <span class="text-[#94F9FD]">Templates</span>
+                                {item.trade.name} <span class="text-[#00C2FF]">Templates</span>
                             </h2>
                             <p class="text-gray-300 text-lg max-w-2xl" style="font-family: 'Poppins', sans-serif;">
                                 {item.trade.tagline || `Explore our ${item.trade.name.toLowerCase()} portfolio`}
@@ -121,9 +121,9 @@ const templatesByTrade = sortedTrades.map(trade => {
                     </>
                 ) : (
                     /* Placeholder for trades without templates */
-                    <div class="bg-[#1B222C] border-2 border-[#2F8EF8]/30 rounded-3xl p-12 text-center">
+                    <div class="bg-[#0D2B4E] border-2 border-[#00C2FF]/30 rounded-3xl p-12 text-center">
                         <div class="max-w-md mx-auto">
-                            <svg class="w-16 h-16 text-[#94F9FD] mx-auto mb-6 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-16 h-16 text-[#00C2FF] mx-auto mb-6 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
                             <h3 class="text-xl font-bold text-white mb-3" style="font-family: 'Poppins', sans-serif;">
@@ -146,7 +146,7 @@ const templatesByTrade = sortedTrades.map(trade => {
             </div>
 
             {/* Decorative Section Divider - Bottom */}
-            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#94F9FD]/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00C2FF]/20 to-transparent"></div>
         </section>
     ))}
 
@@ -154,8 +154,8 @@ const templatesByTrade = sortedTrades.map(trade => {
     {templatesByTrade.length === 0 && (
         <section class="py-20">
             <div class="max-w-4xl mx-auto px-8 text-center">
-                <div class="bg-[#1B222C] border-2 border-[#2F8EF8]/30 rounded-3xl p-12">
-                    <svg class="w-16 h-16 text-[#94F9FD] mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-[#0D2B4E] border-2 border-[#00C2FF]/30 rounded-3xl p-12">
+                    <svg class="w-16 h-16 text-[#00C2FF] mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                     <h3 class="text-2xl font-bold text-white mb-4" style="font-family: 'Poppins', sans-serif;">

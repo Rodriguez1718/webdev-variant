@@ -9,9 +9,9 @@ const trades = await getCollection("trades");
 ---
 
 <nav
-    class="fixed top-0 w-full z-50 border-b border-[#94F9FD]/20 transition-all duration-300 backdrop-blur-md bg-[#161F30]/80"
+    class="fixed top-0 w-full z-50 border-b border-[#00C2FF]/20 transition-all duration-300 backdrop-blur-md bg-[#0A0F1E]/80"
     id="navbar"
-    style="box-shadow: 0 4px 20px rgba(148, 249, 253, 0.1);"
+    style="box-shadow: 0 4px 20px rgba(0, 194, 255, 0.1);"
 >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -74,14 +74,14 @@ const trades = await getCollection("trades");
                         </a>
                         <!-- Dropdown Menu -->
                         <div
-                            class="absolute left-0 mt-2 w-56 bg-[#161F30] rounded-lg shadow-lg border border-[#94F9FD]/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                            class="absolute left-0 mt-2 w-56 bg-[#0A0F1E] rounded-lg shadow-lg border border-[#00C2FF]/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
                         >
                             <div class="py-2">
                                 {
                                     trades.map((trade) => (
                                         <a
                                             href={`/trades-we-serve/${trade.data.slug}`}
-                                            class="flex items-center px-4 py-3 text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 transition-colors duration-200"
+                                            class="flex items-center px-4 py-3 text-white hover:text-[#00C2FF] hover:bg-[#00C2FF]/10 transition-colors duration-200"
                                         >
                                             <svg
                                                 class="w-6 h-6 mr-3 shrink-0"
@@ -103,7 +103,7 @@ const trades = await getCollection("trades");
                                                 <div class="font-medium text-white">
                                                     {trade.data.name}
                                                 </div>
-                                                <div class="text-base text-[#94F9FD]/70">
+                                                <div class="text-base text-[#00C2FF]/70">
                                                     {trade.data.tagline}
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@ const trades = await getCollection("trades");
 
                 <!-- CTA Button -->
                 <Button
-                    variant="primary"
+                    variant="urgency"
                     size="md"
                     href="/contact"
                     ariaLabel="Get a quote for your project"
@@ -145,7 +145,7 @@ const trades = await getCollection("trades");
             <div class="lg:hidden">
                 <button
                     type="button"
-                    class="burger-btn bg-transparent border-none cursor-pointer p-3 flex flex-col gap-1 items-center rounded-lg transition-colors duration-150 hover:bg-white/10 navbar-link focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#94F9FD]"
+                    class="burger-btn bg-transparent border-none cursor-pointer p-3 flex flex-col gap-1 items-center rounded-lg transition-colors duration-150 hover:bg-white/10 navbar-link focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#00C2FF]"
                     id="burgerBtn"
                     aria-controls="mobile-menu"
                     aria-expanded="false"
@@ -175,16 +175,16 @@ const trades = await getCollection("trades");
         style="max-height: 0;"
     >
         <div
-            class="px-2 pt-2 pb-3 space-y-1 bg-[#161F30] border-t border-[#94F9FD]/30"
+            class="px-2 pt-2 pb-3 space-y-1 bg-[#0A0F1E] border-t border-[#00C2FF]/30"
         >
             <a
                 href="/reviews"
-                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
+                class="mobile-nav-item text-nav text-white hover:text-[#00C2FF] hover:bg-[#00C2FF]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/reviews">Reviews</a
             >
             <a
                 href="/our-work"
-                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
+                class="mobile-nav-item text-nav text-white hover:text-[#00C2FF] hover:bg-[#00C2FF]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/our-work">Our Work</a
             >
             <div
@@ -192,14 +192,14 @@ const trades = await getCollection("trades");
             >
                 <a
                     href="/trades-we-serve"
-                    class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 px-3 py-2 transition-colors duration-200 flex-1"
+                    class="mobile-nav-item text-nav text-white hover:text-[#00C2FF] hover:bg-[#00C2FF]/10 px-3 py-2 transition-colors duration-200 flex-1"
                     data-path="/trades-we-serve"
                 >
                     Trades We Serve
                 </a>
                 <button
                     type="button"
-                    class="px-3 py-2 text-white hover:text-[#94F9FD] transition-colors duration-200"
+                    class="px-3 py-2 text-white hover:text-[#00C2FF] transition-colors duration-200"
                     id="trades-toggle"
                     aria-label="Toggle trades dropdown"
                 >
@@ -216,14 +216,14 @@ const trades = await getCollection("trades");
                 </button>
             </div>
             <div
-                class="mobile-trades-dropdown overflow-hidden transition-all duration-300 ease-in-out bg-[#94F9FD]/10 border-l-4 border-[#94F9FD]"
+                class="mobile-trades-dropdown overflow-hidden transition-all duration-300 ease-in-out bg-[#00C2FF]/10 border-l-4 border-[#00C2FF]"
                 style="max-height: 0;"
             >
                 {
                     trades.map((trade) => (
                         <a
                             href={`/trades-we-serve/${trade.data.slug}`}
-                            class="flex items-center px-6 py-3 text-white hover:text-[#94F9FD] transition-colors duration-200"
+                            class="flex items-center px-6 py-3 text-white hover:text-[#00C2FF] transition-colors duration-200"
                         >
                             <svg
                                 class="w-6 h-6 mr-3 shrink-0"
@@ -243,7 +243,7 @@ const trades = await getCollection("trades");
                             </svg>
                             <div>
                                 <div class="font-medium">{trade.data.name}</div>
-                                <div class="text-base text-[#94F9FD]/70">
+                                <div class="text-base text-[#00C2FF]/70">
                                     {trade.data.tagline}
                                 </div>
                             </div>
@@ -253,17 +253,17 @@ const trades = await getCollection("trades");
             </div>
             <a
                 href="/what-we-do"
-                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
+                class="mobile-nav-item text-nav text-white hover:text-[#00C2FF] hover:bg-[#00C2FF]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/what-we-do">What We Do</a
             >
             <a
                 href="/about"
-                class="mobile-nav-item text-nav text-white hover:text-[#94F9FD] hover:bg-[#94F9FD]/10 block px-3 py-2 transition-colors duration-200"
+                class="mobile-nav-item text-nav text-white hover:text-[#00C2FF] hover:bg-[#00C2FF]/10 block px-3 py-2 transition-colors duration-200"
                 data-path="/about">About</a
             >
             <div class="px-3 py-2">
                 <Button
-                    variant="primary"
+                    variant="urgency"
                     size="md"
                     href="/contact"
                     fullWidth
@@ -292,30 +292,97 @@ const trades = await getCollection("trades");
     /* Navigation link colors */
     .navbar-link {
         color: white;
+        position: relative;
+        transition: all 0.3s ease;
     }
 
     .navbar-link:hover {
-        color: var(--bright-cyan);
+        color: var(--electric-cyan);
+        background-color: rgba(0, 194, 255, 0.1);
+        border-radius: 0.5rem;
     }
 
-    /* Active link indicator */
+    .navbar-link:hover::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background: var(--electric-cyan);
+        border-radius: 2px;
+    }
+
+    /* Active link indicator - Same as hover for consistency */
     .nav-item.active {
-        color: var(--bright-cyan);
+        color: var(--electric-cyan);
+        background-color: rgba(0, 194, 255, 0.15);
+        border-radius: 0.5rem;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .nav-item.active::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 3px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            var(--electric-cyan),
+            transparent
+        );
+        border-radius: 2px;
     }
 
     /* Mobile active state */
     .mobile-nav-item.active {
-        color: var(--bright-cyan);
-        background-color: rgba(148, 249, 253, 0.1);
+        color: var(--electric-cyan);
+        background-color: rgba(0, 194, 255, 0.15);
+        border-left: 4px solid var(--electric-cyan);
+        font-weight: 700;
+    }
+
+    /* Mobile hover state */
+    .mobile-nav-item:hover:not(.active) {
+        border-left: 4px solid var(--electric-cyan);
+        padding-left: calc(0.75rem - 4px);
+    }
+
+    /* Dropdown menu styling */
+    .group:hover .absolute {
+        animation: slideDown 0.2s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Dropdown item hover enhancement */
+    .absolute a:hover {
+        border-left: 3px solid var(--electric-cyan);
+        padding-left: calc(1rem - 3px);
     }
 
     /* Scrolled navbar state */
     nav.scrolled {
-        background: rgba(22, 31, 48, 0.95);
+        background: rgba(10, 15, 30, 0.95);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        box-shadow: 0 4px 30px rgba(148, 249, 253, 0.2) !important;
-        border-bottom: 1px solid rgba(148, 249, 253, 0.3);
+        box-shadow: 0 4px 30px rgba(0, 194, 255, 0.2) !important;
+        border-bottom: 1px solid rgba(0, 194, 255, 0.3);
     }
 
     /* Default navbar glassmorphism */
@@ -375,17 +442,20 @@ const trades = await getCollection("trades");
         if (burgerBtn && mobileMenu) {
             burgerBtn.addEventListener("click", function () {
                 const isOpen = mobileMenu.classList.contains("open");
-                
+
                 if (!isOpen) {
                     // Open menu
                     mobileMenu.classList.add("open");
                     burgerBtn.classList.add("open");
                     burgerBtn.setAttribute("aria-expanded", "true");
-                    
+
                     // Calculate and set max height
-                    const menuContent = mobileMenu.querySelector("div") as HTMLElement | null;
+                    const menuContent = mobileMenu.querySelector(
+                        "div",
+                    ) as HTMLElement | null;
                     if (menuContent) {
-                        mobileMenu.style.maxHeight = menuContent.scrollHeight + "px";
+                        mobileMenu.style.maxHeight =
+                            menuContent.scrollHeight + "px";
                     }
                 } else {
                     // Close menu
@@ -393,7 +463,7 @@ const trades = await getCollection("trades");
                     burgerBtn.classList.remove("open");
                     burgerBtn.setAttribute("aria-expanded", "false");
                     mobileMenu.style.maxHeight = "0";
-                    
+
                     // Also close trades dropdown if open
                     if (tradesDropdown) {
                         tradesDropdown.style.maxHeight = "0px";
@@ -453,7 +523,8 @@ const trades = await getCollection("trades");
 
                 const dropdown = tradesDropdown;
                 const isCurrentlyOpen =
-                    dropdown && dropdown.style.maxHeight &&
+                    dropdown &&
+                    dropdown.style.maxHeight &&
                     dropdown.style.maxHeight !== "0px";
 
                 // Toggle dropdown with smooth animation

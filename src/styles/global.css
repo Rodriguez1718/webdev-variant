@@ -7,21 +7,21 @@
 
 /* Global Design Tokens */
 :root {
-  /* Core Identity - Brand Colors */
+  /* New Color Palette - Tech/Industrial Theme */
+  --midnight-navy: #0A0F1E;
+  --deep-blueprint: #0D2B4E;
+  --electric-cyan: #00C2FF;
+  --volt-yellow: #FFD100;
+  --blaze-orange-red: #FF4B20;
+  --ice-white: #F2F4F8;
+  --pure-white: #FFFFFF;
+
+  /* Legacy colors for backward compatibility */
   --primary-blue: #2563EB;
   --secondary-gray-blue: #64748B;
   --accent-red: #DC2626;
   --neutral-white: #FFFFFF;
   --text-charcoal: #334155;
-
-  /* New Modern Palette - From Design Reference */
-  --dark-navy: #161F30;
-  --bright-cyan: #94F9FD;
-  --bright-blue: #2F8EF8;
-  --pure-white: #FFFFFF;
-  --lighter-navy: #1B2838;
-  --accent-orange: #FF6B35;
-  --accent-purple: #A78BFA;
 
   /* UI Surfaces & Text */
   --parchment: #F5F5F5;
@@ -34,17 +34,18 @@
   --warning: #F5A623;
   --highlight: #F472B6;
 
-  /* Semantic Color Mapping */
-  --primary-color: var(--bright-blue);
-  --secondary-color: var(--bright-cyan);
-  --accent-color: var(--bright-cyan);
+  /* Semantic Color Mapping - Updated to new palette */
+  --primary-color: var(--electric-cyan);
+  --secondary-color: var(--deep-blueprint);
+  --accent-color: var(--volt-yellow);
+  --urgency-color: var(--blaze-orange-red);
   --text-primary: var(--pure-white);
-  --text-secondary: var(--bright-cyan);
+  --text-secondary: var(--electric-cyan);
   --text-muted: var(--muted);
-  --background: var(--dark-navy);
-  --surface: var(--dark-navy);
-  --button-color: var(--bright-blue);
-  --button-hover: var(--bright-cyan);
+  --background: var(--midnight-navy);
+  --surface: var(--deep-blueprint);
+  --button-color: var(--electric-cyan);
+  --button-hover: var(--volt-yellow);
 
   /* Font Variables */
   --font-primary: 'Poppins', ui-sans-serif, system-ui, sans-serif;
@@ -228,58 +229,94 @@ h3,
   @apply bg-blue-50 border border-[#22D3EE] text-blue-800 p-4 rounded-lg;
 }
 
-/* Modern Palette Utility Classes */
-.bg-dark-navy {
-  background-color: var(--dark-navy);
+/* New Palette Utility Classes */
+.bg-midnight-navy {
+  background-color: var(--midnight-navy);
 }
 
-.bg-bright-cyan {
-  background-color: var(--bright-cyan);
+.bg-deep-blueprint {
+  background-color: var(--deep-blueprint);
 }
 
-.bg-bright-blue {
-  background-color: var(--bright-blue);
+.bg-electric-cyan {
+  background-color: var(--electric-cyan);
 }
 
-.text-dark-navy {
-  color: var(--dark-navy);
+.bg-volt-yellow {
+  background-color: var(--volt-yellow);
 }
 
-.text-bright-cyan {
-  color: var(--bright-cyan);
+.bg-blaze-orange-red {
+  background-color: var(--blaze-orange-red);
 }
 
-.text-bright-blue {
-  color: var(--bright-blue);
+.bg-ice-white {
+  background-color: var(--ice-white);
 }
 
-.border-bright-cyan {
-  border-color: var(--bright-cyan);
+.text-midnight-navy {
+  color: var(--midnight-navy);
 }
 
-.border-bright-blue {
-  border-color: var(--bright-blue);
+.text-deep-blueprint {
+  color: var(--deep-blueprint);
+}
+
+.text-electric-cyan {
+  color: var(--electric-cyan);
+}
+
+.text-volt-yellow {
+  color: var(--volt-yellow);
+}
+
+.text-blaze-orange-red {
+  color: var(--blaze-orange-red);
+}
+
+.text-ice-white {
+  color: var(--ice-white);
+}
+
+.border-electric-cyan {
+  border-color: var(--electric-cyan);
+}
+
+.border-volt-yellow {
+  border-color: var(--volt-yellow);
+}
+
+.border-blaze-orange-red {
+  border-color: var(--blaze-orange-red);
+}
+
+.border-deep-blueprint {
+  border-color: var(--deep-blueprint);
 }
 
 /* Global Component Classes */
 .btn-primary {
-  @apply bg-[var(--bright-blue)] hover:bg-[var(--bright-cyan)] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  @apply bg-[var(--electric-cyan)] hover:bg-[var(--volt-yellow)] text-[var(--midnight-navy)] font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
 }
 
 .btn-secondary {
-  @apply bg-[var(--bright-cyan)] hover:bg-[var(--bright-blue)] text-[var(--dark-navy)] font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  @apply border-2 border-[var(--electric-cyan)]/30 text-[var(--electric-cyan)] hover:bg-[var(--volt-yellow)] hover:text-[var(--midnight-navy)] hover:border-[var(--volt-yellow)] font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
 }
 
 .btn-outline {
-  @apply border-2 border-[var(--bright-cyan)] text-[var(--bright-cyan)] hover:bg-[var(--bright-cyan)] hover:text-[var(--dark-navy)] font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+  @apply border-2 border-[var(--electric-cyan)] text-[var(--electric-cyan)] hover:bg-[var(--electric-cyan)] hover:text-[var(--midnight-navy)] font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+.btn-urgency {
+  @apply bg-[var(--blaze-orange-red)] hover:bg-[var(--volt-yellow)] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
 }
 
 .card {
-  @apply bg-[var(--dark-navy)] rounded-lg shadow-md p-6 border border-[var(--bright-cyan)];
+  @apply bg-[var(--deep-blueprint)] rounded-lg shadow-md p-6 border border-[var(--electric-cyan)];
 }
 
 .card-hover {
-  @apply bg-[var(--dark-navy)] rounded-lg shadow-md hover:shadow-lg p-6 border border-[var(--bright-cyan)] transition-shadow duration-200;
+  @apply bg-[var(--deep-blueprint)] rounded-lg shadow-md hover:shadow-lg p-6 border border-[var(--electric-cyan)] transition-shadow duration-200;
 }
 
 .heading-primary {
@@ -293,7 +330,7 @@ h3,
 .heading-secondary {
   font-size: var(--font-h2);
   font-weight: 700;
-  color: var(--bright-cyan);
+  color: var(--electric-cyan);
   line-height: 1.2;
   font-family: var(--font-primary);
 }
@@ -357,54 +394,72 @@ h3,
 
 /* Navbar Active States */
 .nav-item.active {
-  color: var(--bright-cyan);
+  color: var(--electric-cyan);
+  background-color: rgba(0, 194, 255, 0.15);
+  border-radius: 0.5rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--electric-cyan), transparent);
+  border-radius: 2px;
 }
 
 .mobile-nav-item.active {
-  color: var(--bright-cyan);
-  background-color: rgba(148, 249, 253, 0.1);
+  color: var(--electric-cyan);
+  background-color: rgba(0, 194, 255, 0.15);
+  border-left: 4px solid var(--electric-cyan);
+  font-weight: 700;
 }
 
 /* Glow Effects */
 .glow-cyan {
-  box-shadow: 0 0 20px rgba(148, 249, 253, 0.4), 0 0 40px rgba(148, 249, 253, 0.2);
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.4), 0 0 40px rgba(0, 194, 255, 0.2);
 }
 
-.glow-azure {
-  box-shadow: 0 0 20px rgba(47, 142, 248, 0.4), 0 0 40px rgba(47, 142, 248, 0.2);
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(255, 209, 0, 0.4), 0 0 40px rgba(255, 209, 0, 0.2);
 }
 
 .glow-cyan-strong {
-  box-shadow: 0 0 30px rgba(148, 249, 253, 0.6), 0 0 60px rgba(148, 249, 253, 0.3);
+  box-shadow: 0 0 30px rgba(0, 194, 255, 0.6), 0 0 60px rgba(0, 194, 255, 0.3);
 }
 
-.glow-azure-strong {
-  box-shadow: 0 0 30px rgba(47, 142, 248, 0.6), 0 0 60px rgba(47, 142, 248, 0.3);
+.glow-yellow-strong {
+  box-shadow: 0 0 30px rgba(255, 209, 0, 0.6), 0 0 60px rgba(255, 209, 0, 0.3);
 }
 
 /* Glassmorphism Effects */
 .glass {
-  background: rgba(22, 31, 48, 0.8);
+  background: rgba(10, 15, 30, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-strong {
-  background: rgba(22, 31, 48, 0.9);
+  background: rgba(10, 15, 30, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
 /* Gradient Text */
 .gradient-text-cyan {
-  background: linear-gradient(135deg, #FFFFFF 0%, #94F9FD 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #00C2FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.gradient-text-azure {
-  background: linear-gradient(135deg, #2F8EF8 0%, #94F9FD 100%);
+.gradient-text-yellow {
+  background: linear-gradient(135deg, #00C2FF 0%, #FFD100 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -412,11 +467,11 @@ h3,
 
 /* Neon Border */
 .neon-border-cyan {
-  border: 1px solid #94F9FD;
-  box-shadow: 0 0 10px rgba(148, 249, 253, 0.5), inset 0 0 10px rgba(148, 249, 253, 0.2);
+  border: 1px solid #00C2FF;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.5), inset 0 0 10px rgba(0, 194, 255, 0.2);
 }
 
-.neon-border-azure {
-  border: 1px solid #2F8EF8;
-  box-shadow: 0 0 10px rgba(47, 142, 248, 0.5), inset 0 0 10px rgba(47, 142, 248, 0.2);
+.neon-border-yellow {
+  border: 1px solid #FFD100;
+  box-shadow: 0 0 10px rgba(255, 209, 0, 0.5), inset 0 0 10px rgba(255, 209, 0, 0.2);
 }
