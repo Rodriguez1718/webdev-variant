@@ -28,52 +28,52 @@ const {
     <!-- Desktop Layout -->
     <div class="hidden md:block absolute inset-0 flex items-center justify-center pointer-events-none" id="hero-text" style="top: 80px;">
       <div class="text-center select-none">
-        <div class="text-[16rem] lg:text-[20rem] xl:text-[39rem] font-black text-gray-500/20 leading-[0.8] tracking-tighter transition-all duration-300" 
-             style="font-family: 'Bebas Neue', 'Arial Black', 'Helvetica', sans-serif; font-weight: 400; letter-spacing: -0.001em;">
-          GROW
+
+        <!-- GROW slide-up reveal (masked) -->
+        <div class="grow-mask">
+          <div class="grow-text text-[16rem] lg:text-[20rem] xl:text-[39rem] font-black text-gray-500/20 leading-[0.8] tracking-tighter"
+               style="font-family: 'Bebas Neue', 'Arial Black', 'Helvetica', sans-serif; font-weight: 400; letter-spacing: -0.001em;">
+            GROW
+          </div>
         </div>
+
       </div>
 
-      <!-- Desktop Overlay Text - "Build" and "Dominate" -->
+      <!-- Desktop Overlay Text - "Build" slides in from left, "Dominate" from right -->
       <div class="absolute inset-0 pointer-events-none" id="hero-overlay-text">
-        <div class="absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-12">
-          <h2 class="font-bold italic transition-all duration-75 ease-out text-[#00C2FF]" 
+
+        <!-- "Build" — slides in from the left -->
+        <div class="absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-12" id="build-container">
+          <h2 class="slide-in-left font-bold italic text-[#00C2FF]" 
               style="font-family: 'Just Another Hand', cursive; font-weight: normal; font-size: 14rem; line-height: 0.8;">
             Build
           </h2>
         </div>
-        <div class="absolute right-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2 rotate-12">
-          <h2 class="font-bold italic transition-all duration-75 ease-out text-[#00C2FF]" 
+
+        <!-- "Dominate" — slides in from the right -->
+        <div class="absolute right-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2 rotate-12" id="dominate-container">
+          <h2 class="slide-in-right font-bold italic text-[#00C2FF]" 
               style="font-family: 'Just Another Hand', cursive; font-weight: normal; font-size: 14rem; line-height: 0.8;">
             Dominate
           </h2>
         </div>
+
       </div>
     </div>
 
-    <!-- ── Mobile Layout ── -->
-    <!-- Replaced the absolute-positioned carousel with a normal flex column
-         so everything is naturally centered with no phantom top space.       -->
+    <!-- Mobile Layout -->
     <div class="md:hidden flex flex-col items-center justify-center w-full px-8 gap-6">
 
-      <!-- Carousel word – fixed height so slides don't shift the layout -->
+      <!-- Carousel word -->
       <div class="relative w-full flex items-center justify-center" style="height: 140px;">
         <div class="carousel-slide absolute inset-0 flex items-center justify-center opacity-100 transition-opacity duration-1000 ease-in-out" data-slide="0">
-          <span class="font-bold italic text-[#00C2FF] carousel-text" 
-              style="font-family: 'Just Another Hand', cursive; font-weight: normal; font-size: 5.5rem; line-height: 1;">
-            Build
-          </span>
+          <span class="mobile-word">Build</span>
         </div>
         <div class="carousel-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-1000 ease-in-out" data-slide="1">
-          <span style="font-family: 'Bebas Neue', 'Arial Black', Helvetica, sans-serif; font-size: 7rem; line-height: 1; color: rgba(255,255,255,0.25); letter-spacing: -0.01em;">
-            GROW
-          </span>
+          <span class="mobile-grow">GROW</span>
         </div>
         <div class="carousel-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-1000 ease-in-out" data-slide="2">
-          <span class="font-bold italic text-[#00C2FF] carousel-text" 
-              style="font-family: 'Just Another Hand', cursive; font-weight: normal; font-size: 5.5rem; line-height: 1;">
-            Dominate
-          </span>
+          <span class="mobile-word">Dominate</span>
         </div>
       </div>
 
@@ -103,10 +103,10 @@ const {
     </div>
 
     <!-- Desktop: Content and Button Layout -->
-    <div class="hidden md:block absolute bottom-40 w-full z-20">
+    <div class="hidden md:block absolute bottom-40 w-full z-20" id="hero-content">
       <div class="max-w-6xl mx-auto px-8 text-left">
         <div class="flex flex-row justify-between items-end gap-8">
-          <div class="max-w-md space-y-6">
+          <div class="max-w-md space-y-6 animate-slide-in-left">
             <h3 class="text-xl font-bold text-white tracking-wide" 
                 style="font-family: 'Arial', 'Helvetica', sans-serif; font-weight: bold; letter-spacing: 0.1em;">
               {subtitle}
@@ -115,7 +115,7 @@ const {
               {description}
             </p>
           </div>
-          <div class="flex justify-center items-center">
+          <div class="flex justify-center items-center animate-slide-in-right">
             <Button
               variant="primary"
               size="lg"
@@ -175,7 +175,135 @@ const {
   window.addEventListener('resize', () => { stopCarousel(); startCarousel(); });
 </script>
 
+<!-- Import parallax scroll animation -->
+<script src="/src/scripts/scroll-animate.js"></script>
+
 <style>
+  /* ── GROW slide-up reveal (masked) ────────────────────────────────────── */
+  .grow-mask {
+    overflow: hidden;
+    padding-bottom: 0.05em;
+    line-height: 0.8;
+  }
+
+  .grow-text {
+    display: block;
+    transform: translateY(110%);
+    animation: growSlideUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    will-change: transform;
+  }
+
+  @keyframes growSlideUp {
+    from { transform: translateY(110%); }
+    to   { transform: translateY(0); }
+  }
+
+  /* ── Build: slides in from the left + fades in ─────────────────────────
+   *
+   * No overflow:hidden wrapper — the word floats in freely from off-screen.
+   * Uses translateX + opacity so it feels like it drifts into place.
+   * Delay is slightly longer than GROW so they feel staggered and deliberate.
+   * ───────────────────────────────────────────────────────────────────── */
+  .slide-in-left {
+    opacity: 0;
+    transform: translateX(-80px) rotate(-12deg);
+    animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-80px) rotate(-12deg);
+    }
+    to {
+      opacity: 1;
+      /* rotate stays — the parent wrapper already applies the tilt,
+         this just preserves it at rest so it doesn't double-rotate */
+      transform: translateX(0) rotate(-12deg);
+    }
+  }
+
+  /* ── Dominate: slides in from the right + fades in ─────────────────────
+   *
+   * Mirror of Build. Slightly longer delay so Build lands first,
+   * then Dominate follows — creates a left-then-right theatrical entry.
+   * ───────────────────────────────────────────────────────────────────── */
+  .slide-in-right {
+    opacity: 0;
+    transform: translateX(80px) rotate(12deg);
+    animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(80px) rotate(12deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(12deg);
+    }
+  }
+
+  /* ── Mobile carousel words ─────────────────────────────────────────────── */
+  .mobile-word {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 3.5rem;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1;
+    color: #00C2FF;
+  }
+
+  .mobile-grow {
+    font-family: 'Bebas Neue', 'Arial Black', Helvetica, sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Desktop hand-font sizing ──────────────────────────────────────────── */
+  @media (min-width: 768px) {
+    h2[style*="Just Another Hand"] { font-size: 14rem !important; }
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    h2[style*="Just Another Hand"] { font-size: 12rem !important; }
+  }
+
+  /* ── Misc animations ───────────────────────────────────────────────────── */
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.7s ease-out 0.5s both;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.7s ease-out 0.8s both;
+  }
+
   @keyframes float {
     0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
     50%       { transform: translate(-50%, -50%) translateY(-20px); }
@@ -192,10 +320,4 @@ const {
   .animate-pulse-slow   { animation: pulse-slow   4s ease-in-out infinite; }
   .animate-pulse-slower { animation: pulse-slower  6s ease-in-out infinite; }
   .animate-float        { animation: float         8s ease-in-out infinite; }
-
-  /* Desktop hand-font sizing */
-  h2[style*="Just Another Hand"] { font-size: 14rem !important; }
-  @media (max-width: 1200px) {
-    h2[style*="Just Another Hand"] { font-size: 12rem !important; }
-  }
 </style>
