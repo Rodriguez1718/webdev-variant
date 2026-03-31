@@ -18,7 +18,7 @@ const displayedTrades = limit ? sortedTrades.slice(0, limit) : sortedTrades;
 const hasMoreTrades = limit && sortedTrades.length > limit;
 ---
 
-<section class="relative py-20 overflow-hidden" style="background-color: #111111;">
+<section class="relative py-20 overflow-hidden" style="background-color: #1e1e1e;">
 
     <!-- Noise / Grain Texture Overlay -->
     <!-- Two layers: one for base grain density, one for depth/variation -->
@@ -117,14 +117,12 @@ const hasMoreTrades = limit && sortedTrades.length > limit;
 
 <style>
     /*
-     * Replicating the reference image:
-     * - Base color: ~#111111 (very dark, not pure black)
-     * - Fine, dense grain that reads as a tactile surface texture
-     * - Two stacked noise layers for organic depth
+     * Matching the reference image grain texture:
+     * - Very subtle, fine grain similar to paper or canvas texture
+     * - Barely visible but adds tactile quality to the surface
+     * - Single layer approach for clean, minimal effect
      *
-     * Layer 1 (grain-base): coarser low-frequency noise for the "body"
-     * Layer 2 (grain-top):  finer high-frequency noise for the sparkle/detail
-     * Together they produce the layered grain seen in the reference.
+     * Creates a sophisticated, premium feel without being distracting
      */
 
     .grain-base {
@@ -132,11 +130,11 @@ const hasMoreTrades = limit && sortedTrades.length > limit;
         inset: 0;
         z-index: 1;
         pointer-events: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
         background-repeat: repeat;
-        background-size: 512px 512px;
-        opacity: 0.42;
-        mix-blend-mode: screen;
+        background-size: 300px 300px;
+        opacity: 0.03;
+        mix-blend-mode: multiply;
     }
 
     .grain-top {
@@ -144,10 +142,10 @@ const hasMoreTrades = limit && sortedTrades.length > limit;
         inset: 0;
         z-index: 2;
         pointer-events: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='1.2' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
         background-repeat: repeat;
-        background-size: 256px 256px;
-        opacity: 0.18;
-        mix-blend-mode: screen;
+        background-size: 150px 150px;
+        opacity: 0.02;
+        mix-blend-mode: overlay;
     }
 </style>
