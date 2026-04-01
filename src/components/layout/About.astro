@@ -108,32 +108,42 @@ import StatCard from "../ui/StatCard.astro";
                 </div>
             </div>
 
-            <!-- Right Column - Stats Grid -->
-            <div class="grid grid-cols-2 gap-4">
-                <StatCard
-                    icon="clock"
-                    value="10+"
-                    label="Years of Experience"
-                    variant="dark"
-                />
-                <StatCard
-                    icon="building"
-                    value="Built for Trades"
-                    label="Industry Specialized"
-                    variant="teal"
-                />
-                <StatCard
-                    icon="users"
-                    value="500+"
-                    label="Contractors Served"
-                    variant="dark"
-                />
-                <StatCard
-                    icon="star"
-                    value="4.9/5"
-                    label="Client Satisfaction"
-                    variant="teal"
-                />
+            <!-- Right Column - Stats Grid with Stacked Animation -->
+            <div class="relative">
+                <div class="stats-stack" id="statsStack">
+                    <div class="stack-card stack-card-1">
+                        <StatCard
+                            icon="clock"
+                            value="10+"
+                            label="Years of Experience"
+                            variant="dark"
+                        />
+                    </div>
+                    <div class="stack-card stack-card-2">
+                        <StatCard
+                            icon="building"
+                            value="Built for Trades"
+                            label="Industry Specialized"
+                            variant="teal"
+                        />
+                    </div>
+                    <div class="stack-card stack-card-3">
+                        <StatCard
+                            icon="users"
+                            value="500+"
+                            label="Contractors Served"
+                            variant="dark"
+                        />
+                    </div>
+                    <div class="stack-card stack-card-4">
+                        <StatCard
+                            icon="star"
+                            value="4.9/5"
+                            label="Client Satisfaction"
+                            variant="teal"
+                        />
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -168,6 +178,138 @@ import StatCard from "../ui/StatCard.astro";
     >
     </div>
 </section>
+
+<!-- GSAP and ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script is:inline>
+// GSAP Stacked Cards Scroll Animation
+function initStackedCards() {
+    // Check if GSAP is available
+    if (typeof gsap === 'undefined') {
+        console.error('GSAP not loaded');
+        return;
+    }
+
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const statsStack = document.getElementById('statsStack');
+    
+    if (!statsStack) {
+        console.error('Stats stack element not found');
+        return;
+    }
+
+    // Get all stack cards
+    const cards = document.querySelectorAll('.stack-card');
+    
+    if (cards.length === 0) {
+        console.error('No stack cards found');
+        return;
+    }
+
+    console.log('Found', cards.length, 'cards');
+
+    // Set initial state - all cards stacked
+    gsap.set(cards[0], { 
+        x: 0, 
+        y: 0, 
+        rotation: -2, 
+        scale: 1, 
+        zIndex: 4 
+    });
+    
+    gsap.set(cards[1], { 
+        x: 4, 
+        y: 8, 
+        rotation: 1, 
+        scale: 0.98, 
+        zIndex: 3 
+    });
+    
+    gsap.set(cards[2], { 
+        x: 8, 
+        y: 16, 
+        rotation: -1, 
+        scale: 0.96, 
+        zIndex: 2 
+    });
+    
+    gsap.set(cards[3], { 
+        x: 12, 
+        y: 24, 
+        rotation: 2, 
+        scale: 0.94, 
+        zIndex: 1 
+    });
+
+    // Create timeline for the animation
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: statsStack,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 1,
+            markers: true, // Enable markers for debugging
+            onUpdate: (self) => {
+                console.log('ScrollTrigger progress:', self.progress);
+            }
+        }
+    });
+
+    // Animate cards to their final positions
+    tl.to(cards[0], {
+        x: 0,
+        y: -20,
+        rotation: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out"
+    }, 0)
+    .to(cards[1], {
+        x: window.innerWidth < 768 ? 0 : 140,
+        y: window.innerWidth < 768 ? 180 : -10,
+        rotation: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out"
+    }, 0.1)
+    .to(cards[2], {
+        x: 0,
+        y: window.innerWidth < 768 ? 180 : 170,
+        rotation: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out"
+    }, 0.2)
+    .to(cards[3], {
+        x: window.innerWidth < 768 ? 0 : 140,
+        y: window.innerWidth < 768 ? 360 : 180,
+        rotation: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out"
+    }, 0.3);
+
+    console.log('Animation timeline created');
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        ScrollTrigger.refresh();
+    });
+}
+
+// Initialize when DOM is ready and GSAP is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(initStackedCards, 100); // Small delay to ensure GSAP is loaded
+    });
+} else {
+    setTimeout(initStackedCards, 100);
+}
+</script>
 
 <style>
     /*
@@ -226,5 +368,32 @@ import StatCard from "../ui/StatCard.astro";
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+    }
+
+    /* Stacked Cards Animation */
+    .stats-stack {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        perspective: 1000px;
+    }
+
+    .stack-card {
+        position: absolute;
+        width: 280px;
+        height: 160px;
+        will-change: transform;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .stats-stack {
+            height: 600px; /* Increased height for mobile stacked layout */
+        }
+        
+        .stack-card {
+            width: 240px;
+            height: 140px;
+        }
     }
 </style>
