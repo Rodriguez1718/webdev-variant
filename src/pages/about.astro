@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero2 from "../components/layout/Hero2.astro";
 import OurApproach from "../components/layout/OurApproach.astro";
+import AboutUs from "../components/layout/About.astro";
 ---
 
 <BaseLayout
@@ -12,6 +13,6 @@ import OurApproach from "../components/layout/OurApproach.astro";
         title="About Us"
         breadcrumbItems={[{ label: "HOME", href: "/" }, { label: "ABOUT US" }]}
     />
-
+    <AboutUs />
     <OurApproach />
 </BaseLayout>
